@@ -1,0 +1,48 @@
+
+
+.md-1 {
+    display: flex;
+    width: auto;
+    height: 50px;
+    background-color: #1C2434;
+
+}
+
+
+.md-hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.md-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label-1 {
+    font-weight: normal;
+    display: flex;
+}
+
+.form-control-1 {
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 350px;
+    height: 44px;
+    margin-top: 3px;
+}
+
+.signin-button {
+    padding: 10px;
+    width: 139.55px;
+    height: 40.62px;
+    background-color: #1C2434;
+    border-radius: 25px;
+    color: white;
+    font-style: normal;
+    font-size: 15px;
+}

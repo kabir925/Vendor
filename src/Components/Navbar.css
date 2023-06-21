@@ -1,0 +1,47 @@
+.Appone {
+  display: flex;
+  height: 100vh;
+  overflow: auto !important
+}
+
+.Head-class {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  overflow: auto;
+  grid-template-columns: 17rem auto;
+}
+
+
+.active{
+  display: block;
+  color: white;
+  font-style: normal;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 15px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+.active:hover {
+  background-color: white;
+  color: black;
+  font-style: bold;
+  border-radius: 20px;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1C2434;
+  height: 3.4rem;
+}

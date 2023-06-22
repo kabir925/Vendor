@@ -1,4 +1,6 @@
 import './App.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BasicDetails from './Components/BasicDetails.jsx';
 import Bankdetails from './Components/Bankdetails.jsx';
@@ -9,7 +11,20 @@ import Signin from './Components/Signin.jsx'
 
 function App() {
   return (
-    <div className="App">
+    <>
+       <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+       <div className="App">
       <BrowserRouter>
         <Routes>
         <Route path="/" element={<Signup />} />
@@ -21,7 +36,10 @@ function App() {
           <Route path='/login' element={<Signin/>}/>
         </Routes>
       </BrowserRouter>
-    </div>
+      </div>
+    </>
+   
+    
   );
 }
 

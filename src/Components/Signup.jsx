@@ -1,4 +1,7 @@
 import React from "react";
+import axios from "axios";
+import {  toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import './Signup.css'
 import { useNavigate } from "react-router-dom";
 const Signup = () => {
@@ -10,6 +13,31 @@ const Signup = () => {
         let formData = new FormData(e.target);
         formData = Object.fromEntries(formData);
         console.log(formData)
+        
+        const id=toast.loading("Please wait...")
+        axios.post("https://new-vendor-backend.vercel.app/api/v1/vendors/auth/signUp",{
+            data:formData,
+        })
+        .then ((res)=> {
+            console.log(res);
+            toast.update(id,{
+                render: "Logged in..",
+                type: "success",
+                isLoading: false,
+                closeOnClick: true,
+                autoClose: 4000,
+            });
+        })
+        .catch((res) => {
+            console.log(res.message);
+            toast.update(id, {
+              render: "Something went wrong",
+              type: "error",
+              isLoading: false,
+              closeOnClick: true,
+              autoClose: 5000,
+            });
+          });
     };
     return (
         <div>
@@ -24,12 +52,12 @@ const Signup = () => {
         
                     <div class="md-hero">
                         <div className='md-3'>
-                            <label for="emailadd" class="form-label-1">Email</label>
-                            <input type="email" id="emailadd" name="emailadd" className="form-control-1" />
+                            <label for="PrimaryEmailID" class="form-label-1">Email</label>
+                            <input type="email" id="PrimaryEmailID" name="PrimaryEmailID" className="form-control-1" />
                         </div>
                         <div className='md-3'>
-                            <label for="pass" class="form-label-1">Password</label>
-                            <input type="password" id="pass" name="pass" className="form-control-1" />
+                            <label for="Password" class="form-label-1">Password</label>
+                            <input type="password" id="Password" name="Password" className="form-control-1" />
                         </div>
                        
                         <div className='md-3'>
@@ -37,8 +65,8 @@ const Signup = () => {
                             <input type="number" id="phnumber" name="phnumber" className="form-control-1" />
                         </div>
                         <div className='md-3'>
-                            <label for="companyname" class="form-label-1">Company Name</label>
-                            <input type="text" id="companyname" name="companyname" className="form-control-1" />
+                            <label for="NameOfTheCompany" class="form-label-1">Company Name</label>
+                            <input type="text" id="NameOfTheCompany" name="NameOfTheCompany" className="form-control-1" />
                         </div>
                     </div>
                     <div className="nextbutton">
@@ -58,7 +86,6 @@ const Signup = () => {
                         </button>
                     </div>
                 </form>
-
             </section>
 
         </div>

@@ -20,8 +20,11 @@ const Signup = () => {
         })
         .then ((res)=> {
             console.log(res);
+            const jwtToken = res.data.token;
+            console.log(jwtToken);
+            localStorage.setItem("jwttoken",jwtToken); 
             toast.update(id,{
-                render: "Logged in..",
+                render: "Signing Up!",
                 type: "success",
                 isLoading: false,
                 closeOnClick: true,

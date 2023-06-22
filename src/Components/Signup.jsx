@@ -1,6 +1,9 @@
 import React from "react";
 import './Signup.css'
+import { useNavigate } from "react-router-dom";
 const Signup = () => {
+
+    const navigate=useNavigate();
     const formsubmit = (e) => {
         e.preventDefault();
         console.log("Working")
@@ -18,6 +21,7 @@ const Signup = () => {
                     formsubmit(event);
 
                 }}>
+        
                     <div class="md-hero">
                         <div className='md-3'>
                             <label for="emailadd" class="form-label-1">Email</label>
@@ -40,6 +44,17 @@ const Signup = () => {
                     <div className="nextbutton">
                         <button type="submit" className="signup-button">
                             Signup
+                        </button>
+                    </div>
+                    <div className="md-3">
+                        {/* <label for="signinbutton" className="form-label-1">If you already have an accout please Signin</label> */}
+                        <p className="para-one">If you already have an account. Please Sign in!</p>
+                    </div>
+                    <div className="nextbutton">
+                        <button type="submit" className="signin-button" onClick={()=>{
+                            navigate('/login')
+                        }}>
+                            SignIn
                         </button>
                     </div>
                 </form>

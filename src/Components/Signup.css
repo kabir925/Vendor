@@ -55,3 +55,18 @@
     font-style: normal;
     font-size: 15px;
 }
+
+.signin-button {
+    padding: 10px;
+    width: 139.55px;
+    height: 40.62px;
+    background-color: #1C2434;
+    border-radius: 25px;
+    color: white;
+    font-style: normal;
+    font-size: 15px;
+}
+
+.para-one {
+    margin-top: 30px;
+}

@@ -34,9 +34,9 @@ const Taxdetails = () => {
 
                         {/* Navbar code */}
                         <ul className="hero-section">
-                            <li><NavLink className="active" to="/">Home</NavLink></li>
-                            <li><NavLink className="active" to="/taxdetails">Tax Details</NavLink></li>
-                            <li><NavLink className="active" to="/bankdetails">Bank Details</NavLink></li>
+                            <li><NavLink className="active" to="#">Home</NavLink></li>
+                            <li><NavLink className="active" to="#">Tax Details</NavLink></li>
+                            <li><NavLink className="active" to="#">Bank Details</NavLink></li>
                             <li><NavLink className="active" to="#">Branch Address</NavLink></li>
                             <li><NavLink className="active" to="#">Attachments</NavLink></li>
                             <li><NavLink className="active" to="#">Other Details</NavLink></li>
@@ -45,55 +45,55 @@ const Taxdetails = () => {
                             <div className='closed-class'>
                                 <div class="form-container">
                                     <div className='hero-head'>
-                                        <label for="pancard" class="form-label">PAN</label>
-                                        <input type="number" id="pancard" name="pancard" className="form-control" />
+                                        <label for="Pan" class="form-label">PAN</label>
+                                        <input type="number" id="Pan" name="Pan" className="form-control" />
                                     </div>
                                     <div className='hero-head'>
-                                        <label for="gstnumber" class="form-label">GST</label>
-                                        <input type="text" id="address" name="address" className="form-control" />
+                                        <label for="GST" class="form-label">GST</label>
+                                        <input type="text" id="GST" name="GST" className="form-control" />
                                     </div>
                                 </div>
 
                                 <div className="form-container">
                                     <div className='hero-head'>
-                                        <label for="vatnumber" class="form-label">VAT</label>
-                                        <input type="text" id="floor" name="vatnumber" className="form-control" />
+                                        <label for="VAT" class="form-label">VAT</label>
+                                        <input type="number" id="VAT" name="VAT" className="form-control" />
                                     </div>
                                     <div className='hero-head '>
-                                        <label for="tinnumber" class="form-label">TIN </label>
-                                        <input type="text" id="tinnumber" name="tinnumber" className="form-control" />
+                                        <label for="TINNumber" class="form-label">TIN </label>
+                                        <input type="number" id="TINNumber" name="TINNumber" className="form-control" />
                                     </div>
                                 </div>
 
 
                                 <div className="form-container-split" >
                                     <div className='hero-head' >
-                                        <label htmlFor="salestax" className="form-label">Sales Tax</label>
-                                        <input type="text" id="salestax" name="salestax" className="form-control-multi" />
+                                        <label htmlFor="SalesTax" className="form-label">Sales Tax</label>
+                                        <input type="text" id="SalesTax" name="SalesTax" className="form-control-multi" />
                                     </div>
                                     <div className='hero-head' >
-                                        <label htmlFor="gstinput" className="form-label">GST I/P CREDIT ELIGIBILITY</label>
-                                        <input type="text" id="gstinput" name="gstinput" className="form-control-multi" />
+                                        <label htmlFor="GSTEligibility" className="form-label">GST I/P CREDIT ELIGIBILITY</label>
+                                        <input type="text" id="GSTEligibility" name="GSTEligibility" className="form-control-multi" />
                                     </div>
                                     <div className='hero-head'>
-                                        <label htmlFor="msedregister" className="form-label">MST Registration</label>
-                                        <input type="text" id="msedregister" name="msedregister" className="form-control-multi" />
+                                        <label htmlFor="MSEDRegisteration" className="form-label">MST Registration</label>
+                                        <input type="text" id="MSEDRegisteration" name="MSEDRegisteration" className="form-control-multi" />
                                     </div>
                                     <div className='hero-head'>
-                                        <label htmlFor="lowertax" className="form-label">Lower Tax Deduction Certificate</label>
-                                        <input type="text" id="lowertax" name="lowertax" className="form-control-multi" />
+                                        <label htmlFor="LowerTaxDeductionCertificate" className="form-label">Lower Tax Deduction Certificate</label>
+                                        <input type="text" id="LowerTaxDeductionCertificate" name="LowerTaxDeductionCertificate" className="form-control-multi" />
                                     </div>
                                 </div>
 
                                 <div className="form-container">
                                     <div className='hero-head'>
-                                        <label for="tdsvendor" class="form-label">TDS Applicability on vendor</label>
-                                        <input type="text" id="tdsvendor" name="tdsvendor" className="form-control" />
+                                        <label for="TDSApplicabilityOnVendor" class="form-label">TDS Applicability on vendor</label>
+                                        <input type="text" id="TDSApplicabilityOnVendor" name="TDSApplicabilityOnVendor" className="form-control" />
                                     </div>
-                                    <div className='hero-head'>
+                                    {/* <div className='hero-head'>
                                         <label for="extraf" class="form-label">Extra Field</label>
                                         <input type="text" id="extraf" name="extraf " className="form-control" />
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

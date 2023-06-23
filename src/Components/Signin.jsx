@@ -3,7 +3,16 @@ import axios from "axios";
 import './Signin.css'
 import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 const Signin=()=> {
+
+    const navigate=useNavigate();
+    const setUserCookie=(data)=>
+    {
+        Cookies.set("signincookie","data");
+        navigate('/basicdetails');
+    }
     const formsubmit = (e) => {
         e.preventDefault();
         console.log("Working")
@@ -27,11 +36,12 @@ const Signin=()=> {
                 closeOnClick: true,
                 autoClose: 4000,
             });
+            setUserCookie(res);
         })
         .catch((res) => {
             console.log(res.message);
             toast.update(id, {
-              render: "Something went wrong",
+              render: "Incorrect Details",
               type: "error",
               isLoading: false,
               closeOnClick: true,
@@ -48,6 +58,7 @@ const Signin=()=> {
                 </div>
                 <form onSubmit={(event) => {
                     formsubmit(event);
+                    
 
                 }}>
                     <div class="md-hero">

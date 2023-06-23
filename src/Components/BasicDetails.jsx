@@ -1,11 +1,17 @@
 import React from 'react'
 import './BasicDetails.css'
+// import { useEffect } from 'react';
 import Sidebar from './Sidebar';
 import FaceIcon from '@mui/icons-material/Face';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Cookies from 'js-cookie';
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { addVendorBasicDetails } from "../Redux/vendorSlice";
+
 
 const BasicDetails = () => {
   const navigate = useNavigate();
@@ -13,6 +19,14 @@ const BasicDetails = () => {
   const VendorBasic = useSelector(
     (state) => state.VendorInfo.VendorBasicDetails
   );
+  const setUserCookie = (data) => {
+    Cookies.set("signincookie", "data");
+    navigate('/taxdetails');
+  }
+  //   useEffect(() => {     
+  //     const token = localStorage.getItem("jwttoken");
+
+  // }, []) 
 
   const formsubmit = (e) => {
 
@@ -23,6 +37,34 @@ const BasicDetails = () => {
     // console.log(formData)
     dispatch(addVendorBasicDetails(formData));
     console.log(VendorBasic);
+
+    const id = toast.loading("Please wait...")
+    axios.patch("https://new-vendor-backend.vercel.app/api/v1/vendors/addUserInfo/64929944bcfaf2774ee2fe5a", {
+      data: formData,
+    })
+      .then((res) => {
+        console.log(res);
+        const jwtToken = res.data.token;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
+        toast.update(id, {
+          render: "Logged in..",
+          type: "success",
+          isLoading: false,
+          closeOnClick: true,
+          autoClose: 4000,
+        });
+        setUserCookie(res);
+      })
+      .catch((res) => {
+        console.log(res.message);
+        toast.update(id, {
+          render: "Incorrect Details",
+          type: "error",
+          isLoading: false,
+          closeOnClick: true,
+          autoClose: 5000,
+        });
+      });
 
   };
   return (
@@ -156,7 +198,7 @@ const BasicDetails = () => {
                       id="country3"
                       name="country3"
                       className="form-control-multi"
-                      
+
                     />
                   </div>
                 </div>

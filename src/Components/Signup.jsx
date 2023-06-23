@@ -34,7 +34,7 @@ const Signup = () => {
         .catch((res) => {
             console.log(res.message);
             toast.update(id, {
-              render: "Something went wrong",
+              render: "Invalid Details Entered",
               type: "error",
               isLoading: false,
               closeOnClick: true,

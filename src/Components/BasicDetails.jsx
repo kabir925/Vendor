@@ -129,6 +129,7 @@ const BasicDetails = () => {
                       id="SecondaryEmailID"
                       name="SecondaryEmailID "
                       className="form-control"
+                    
                       required
                     />
                   </div>

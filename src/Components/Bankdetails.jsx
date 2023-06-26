@@ -95,7 +95,7 @@ const Bankdetails = () => {
                                 <div class="form-container">
                                     <div className='hero-head'>
                                         <label for="BankName" class="form-label">Bank Name</label>
-                                        <input type="text" id="BankName" name="BankName" className="form-control" required />
+                                        <input type="text" id="BankName" name="BankName" className="form-control"  required />
                                     </div>
                                     <div className='hero-head'>
                                         <label for="BankAddress" class="form-label">Bank Address</label>
@@ -113,7 +113,6 @@ const Bankdetails = () => {
                                         <input type="text" id="BankIFSCCode" name="BankIFSCCode" className="form-control" pattern="^[A-Z]{4}0[A-Z0-9]{6}$" required />
                                     </div>
                                 </div>
-
 
                                 <div className="form-container" >
                                     <div className='hero-head' >

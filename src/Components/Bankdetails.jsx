@@ -83,9 +83,9 @@ const Bankdetails = () => {
 
                         {/* Navbar code */}
                         <ul className="hero-section">
-                            <li><NavLink className="active" to="#">Home</NavLink></li>
-                            <li><NavLink className="active" to="#">Tax Details</NavLink></li>
-                            <li><NavLink className="active" to="#">Bank Details</NavLink></li>
+                            <li><NavLink className="active" to="/basicdetails">Home</NavLink></li>
+                            <li><NavLink className="active" to="/taxdetails">Tax Details</NavLink></li>
+                            <li><NavLink className="active" to="/bankdetails">Bank Details</NavLink></li>
                             <li><NavLink className="active" to="#">Branch Address</NavLink></li>
                             <li><NavLink className="active" to="#">Attachments</NavLink></li>
                             <li><NavLink className="active" to="#">Other Details</NavLink></li>
@@ -95,11 +95,11 @@ const Bankdetails = () => {
                                 <div class="form-container">
                                     <div className='hero-head'>
                                         <label for="BankName" class="form-label">Bank Name</label>
-                                        <input type="text" id="BankName" name="BankName" className="form-control" required/>
+                                        <input type="text" id="BankName" name="BankName" className="form-control" required />
                                     </div>
                                     <div className='hero-head'>
                                         <label for="BankAddress" class="form-label">Bank Address</label>
-                                        <input type="text" id="BankAddress" name="BankAddress" className="form-control" pattern="^[a-zA-Z0-9\s\.\-\,]+$" required/>
+                                        <input type="text" id="BankAddress" name="BankAddress" className="form-control" pattern="^[a-zA-Z0-9\s\.\-\,]+$" required />
                                     </div>
                                 </div>
 
@@ -110,7 +110,7 @@ const Bankdetails = () => {
                                     </div>
                                     <div className='hero-head '>
                                         <label for="BankIFSCCode" class="form-label">Bank IFSC Code </label>
-                                        <input type="text" id="BankIFSCCode" name="BankIFSCCode" className="form-control" pattern="^[A-Z]{4}0[A-Z0-9]{6}$" required/>
+                                        <input type="text" id="BankIFSCCode" name="BankIFSCCode" className="form-control" pattern="^[A-Z]{4}0[A-Z0-9]{6}$" required />
                                     </div>
                                 </div>
 
@@ -118,7 +118,7 @@ const Bankdetails = () => {
                                 <div className="form-container" >
                                     <div className='hero-head' >
                                         <label htmlFor="SwiftCode" className="form-label">Swift Code</label>
-                                        <input type="text" id="SwiftCode" name="SwiftCode" className="form-control" required/>
+                                        <input type="text" id="SwiftCode" name="SwiftCode" className="form-control" required />
                                     </div>
                                     <div className='hero-head' >
                                         <label htmlFor="WireCode" className="form-label">Wire Code</label>
@@ -141,7 +141,7 @@ const Bankdetails = () => {
                                     </div>
                                     <div className='hero-head'>
                                         <label for="BankCustomerSupportMobile" class="form-label">Bank Customer Care Number</label>
-                                        <input type="number" id="BankCustomerSupportMobile" name="BankCustomerSupportMobile " className="form-control" required/>
+                                        <input type="number" id="BankCustomerSupportMobile" name="BankCustomerSupportMobile " className="form-control" required />
                                     </div>
                                 </div>
 

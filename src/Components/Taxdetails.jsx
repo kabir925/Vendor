@@ -82,9 +82,9 @@ const Taxdetails = () => {
 
                         {/* Navbar code */}
                         <ul className="hero-section">
-                            <li><NavLink className="active" to="#">Home</NavLink></li>
-                            <li><NavLink className="active" to="#">Tax Details</NavLink></li>
-                            <li><NavLink className="active" to="#">Bank Details</NavLink></li>
+                            <li><NavLink className="active" to="/basicdetails">Home</NavLink></li>
+                            <li><NavLink className="active" to="/taxdetails">Tax Details</NavLink></li>
+                            <li><NavLink className="active" to="/bankdetails">Bank Details</NavLink></li>
                             <li><NavLink className="active" to="#">Branch Address</NavLink></li>
                             <li><NavLink className="active" to="#">Attachments</NavLink></li>
                             <li><NavLink className="active" to="#">Other Details</NavLink></li>
@@ -94,11 +94,11 @@ const Taxdetails = () => {
                                 <div class="form-container">
                                     <div className='hero-head'>
                                         <label for="Pan" class="form-label">PAN</label>
-                                        <input type="text" id="Pan" name="Pan" className="form-control" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" required/>
+                                        <input type="text" id="Pan" name="Pan" className="form-control" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" required />
                                     </div>
                                     <div className='hero-head'>
                                         <label for="GST" class="form-label">GST</label>
-                                        <input type="text" id="GST" name="GST" className="form-control"  pattern="^[A-Z]{2}[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9A-Z]{1}$" required/>
+                                        <input type="text" id="GST" name="GST" className="form-control" pattern="^[A-Z]{2}[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9A-Z]{1}$" required />
                                     </div>
                                 </div>
 
@@ -109,7 +109,7 @@ const Taxdetails = () => {
                                     </div>
                                     <div className='hero-head '>
                                         <label for="TINNumber" class="form-label">TIN </label>
-                                        <input type="text" id="TINNumber" name="TINNumber" className="form-control" required/>
+                                        <input type="text" id="TINNumber" name="TINNumber" className="form-control" required />
                                     </div>
                                 </div>
 
@@ -117,11 +117,11 @@ const Taxdetails = () => {
                                 <div className="form-container-split" >
                                     <div className='hero-head' >
                                         <label htmlFor="SalesTax" className="form-label">Sales Tax</label>
-                                        <input type="text" id="SalesTax" name="SalesTax" className="form-control-multi" required/>
+                                        <input type="text" id="SalesTax" name="SalesTax" className="form-control-multi" required />
                                     </div>
                                     <div className='hero-head' >
                                         <label htmlFor="GSTEligibility" className="form-label">GST I/P CREDIT ELIGIBILITY</label>
-                                        <input type="text" id="GSTEligibility" name="GSTEligibility" className="form-control-multi" required/>
+                                        <input type="text" id="GSTEligibility" name="GSTEligibility" className="form-control-multi" required />
                                     </div>
                                     <div className='hero-head'>
                                         <label htmlFor="MSEDRegisteration" className="form-label">MST Registration</label>
@@ -129,14 +129,14 @@ const Taxdetails = () => {
                                     </div>
                                     <div className='hero-head'>
                                         <label htmlFor="LowerTaxDeductionCertificate" className="form-label">Lower Tax Deduction Certificate</label>
-                                        <input type="text" id="LowerTaxDeductionCertificate" name="LowerTaxDeductionCertificate" className="form-control-multi" required/>
+                                        <input type="text" id="LowerTaxDeductionCertificate" name="LowerTaxDeductionCertificate" className="form-control-multi" required />
                                     </div>
                                 </div>
 
                                 <div className="form-container">
                                     <div className='hero-head'>
                                         <label for="TDSApplicabilityOnVendor" class="form-label">TDS Applicability on vendor</label>
-                                        <input type="text" id="TDSApplicabilityOnVendor" name="TDSApplicabilityOnVendor" className="form-control" required/>
+                                        <input type="text" id="TDSApplicabilityOnVendor" name="TDSApplicabilityOnVendor" className="form-control" required />
                                     </div>
                                     {/* <div className='hero-head'>
                                         <label for="extraf" class="form-label">Extra Field</label>

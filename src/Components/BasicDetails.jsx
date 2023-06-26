@@ -22,7 +22,7 @@ const BasicDetails = () => {
   );
 
   useEffect(() => {
-    
+
     const userDetailsCookie = Cookies.get("signincookie");
     if (!userDetailsCookie) {
       navigate("/login");
@@ -39,14 +39,14 @@ const BasicDetails = () => {
     // console.log(formData)
     dispatch(addVendorBasicDetails(formData));
     console.log(VendorBasic);
-   
+
 
     const id = toast.loading("Please wait...")
     axios.patch("https://new-vendor-backend.vercel.app/api/v1/vendors/addUserInfo/", {
       data: formData,
-    },{
+    }, {
       headers: {
-        authorization :`${token}`
+        authorization: `${token}`
       }
     })
       .then((res) => {
@@ -95,9 +95,9 @@ const BasicDetails = () => {
 
             {/* Navbar code */}
             <ul className="hero-section">
-              <li><NavLink className="active" to="#">Home</NavLink></li>
-              <li><NavLink className="active" to="#">Tax Details</NavLink></li>
-              <li><NavLink className="active" to="#">Bank Details</NavLink></li>
+              <li><NavLink className="active" to="/basicdetails">Home</NavLink></li>
+              <li><NavLink className="active" to="/taxdetails">Tax Details</NavLink></li>
+              <li><NavLink className="active" to="/bankdetails">Bank Details</NavLink></li>
               <li><NavLink className="active" to="#">Branch Address</NavLink></li>
               <li><NavLink className="active" to="#">Attachments</NavLink></li>
               <li><NavLink className="active" to="#">Other Details</NavLink></li>
@@ -182,7 +182,7 @@ const BasicDetails = () => {
                       id="City"
                       name="City"
                       className="form-control-multi"
-              
+
                       required
                     />
                   </div>
@@ -236,7 +236,7 @@ const BasicDetails = () => {
                       id="PinCode"
                       name="PinCode"
                       className="form-control"
-                      pattern="^\d{5}$"
+                      pattern="^\d{6}$"
                       required
                     />
                   </div>
@@ -265,8 +265,8 @@ const BasicDetails = () => {
                       name="SecondaryMobileNumber"
                       className="form-control"
                       pattern="[0-9]{10}"
-                       title="Enter a 10-digit phone number" 
-                       required
+                      title="Enter a 10-digit phone number"
+                      required
                     />
                   </div>
                   {/* <div className="hero-head">
@@ -294,7 +294,7 @@ const BasicDetails = () => {
                 </div>
 
                 {/* <div className="form-container"> */}
-                  {/* <div className="hero-head">
+                {/* <div className="hero-head">
                     <label htmlFor="primarynumber2" className="form-label">
                       Primary Contact 2 (Phone):
                     </label>
@@ -305,7 +305,7 @@ const BasicDetails = () => {
                       className="form-control"
                     />
                   </div> */}
-                  {/* <div className="hero-head">
+                {/* <div className="hero-head">
                     <label htmlFor="primaryemail2" className="form-label">
                       Primary Email 2:
                     </label>

@@ -34,7 +34,7 @@ const Signin=()=> {
                 type: "success",
                 isLoading: false,
                 closeOnClick: true,
-                autoClose: 4000,
+                autoClose: 2000,
             });
             setUserCookie(res);
         })

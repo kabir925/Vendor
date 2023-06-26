@@ -49,6 +49,7 @@ const Taxdetails = () => {
                     closeOnClick: true,
                     autoClose: 4000,
                 });
+                navigate('/bankdetails')
 
             })
             .catch((res) => {
@@ -71,7 +72,7 @@ const Taxdetails = () => {
                 <div className="container">
                     <form onSubmit={(event) => {
                         formsubmit(event);
-                        navigate('/bankdetails')
+                        // navigate('/bankdetails')
                     }}>
                         <div className="white-bar">
                             <span class="name">Ankush Thakur</span>

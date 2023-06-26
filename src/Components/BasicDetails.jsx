@@ -50,6 +50,7 @@ const BasicDetails = () => {
       }
     })
       .then((res) => {
+        
         console.log(res);
         // const jwtToken = res.data.token;
         // axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
@@ -60,6 +61,7 @@ const BasicDetails = () => {
           closeOnClick: true,
           autoClose: 4000,
         });
+        navigate('/taxdetails');
 
       })
       .catch((res) => {
@@ -83,7 +85,7 @@ const BasicDetails = () => {
           <form
             onSubmit={(event) => {
               formsubmit(event);
-              navigate('/taxdetails');
+              // navigate('/taxdetails');
             }}
           >
             <div className="white-bar">

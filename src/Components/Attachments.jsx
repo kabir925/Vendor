@@ -1,11 +1,10 @@
 import React,{useState} from 'react'
-import Sidebar from './Sidebar';
 import logo from '../assets/Logo.svg'
 import { HiOutlineDesktopComputer } from 'react-icons/hi'
 import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from 'react-icons/io'
 import { GiMoneyStack } from 'react-icons/gi'
 import { MdTrackChanges } from 'react-icons/md'
-import { BsNewspaper, BsListNested, BsFilePerson } from "react-icons/bs";
+import { BsNewspaper, BsListNested } from "react-icons/bs";
 import { FaMailBulk } from 'react-icons/fa'
 import { RiAdminFill } from 'react-icons/ri'
 import FaceIcon from "@mui/icons-material/Face";
@@ -54,7 +53,7 @@ const Attachments = () => {
         formData.append("img", CancelledCheque, "CancelledCheque");
         formData.append("img", BankDetails, "BankDetails");
         console.log(formData);
-        
+
         const id = toast.loading("This may take some time so take a break.....");
         await axios
           .patch(

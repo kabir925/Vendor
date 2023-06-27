@@ -56,20 +56,20 @@ const Signup = () => {
                     <div class="md-hero">
                         <div className='md-3'>
                             <label for="PrimaryEmailID" class="form-label-1">Email</label>
-                            <input type="email" id="PrimaryEmailID" name="PrimaryEmailID" className="form-control-1" />
+                            <input type="email" id="PrimaryEmailID" name="PrimaryEmailID" className="form-control-1" required />
                         </div>
                         <div className='md-3'>
                             <label for="Password" class="form-label-1">Password</label>
-                            <input type="password" id="Password" name="Password" className="form-control-1" />
+                            <input type="password" id="Password" name="Password" className="form-control-1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
                         </div>
                        
                         <div className='md-3'>
                             <label for="phnumber" class="form-label-1">Phone</label>
-                            <input type="number" id="phnumber" name="phnumber" className="form-control-1" />
+                            <input type="tel" id="phnumber" name="phnumber" className="form-control-1" pattern="[0-9]{10}" title="Enter a 10-digit phone number" required/>
                         </div>
                         <div className='md-3'>
                             <label for="NameOfTheCompany" class="form-label-1">Company Name</label>
-                            <input type="text" id="NameOfTheCompany" name="NameOfTheCompany" className="form-control-1" />
+                            <input type="text" id="NameOfTheCompany" name="NameOfTheCompany" className="form-control-1" required/>
                         </div>
                     </div>
                     <div className="nextbutton">

@@ -9,6 +9,7 @@ import Navbar from './Components/Navbar.jsx'
 import Signup from './Components/Signup.jsx'
 import Signin from './Components/Signin.jsx'
 import Attachments from './Components/Attachments';
+// import Attachment from './Components/Attachment';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           {/* <Route path='/signup' element={<Signup/>}/> */}
           <Route path='/login' element={<Signin />} />
           <Route path='/attachments' element={<Attachments />}  />
+          {/* <Route path='/attachment' element={<Attachment/>}/> */}
         </Routes>
       </BrowserRouter>
       </div>

@@ -35,7 +35,7 @@ const Signin=()=> {
                 type: "success",
                 isLoading: false,
                 closeOnClick: true,
-                autoClose: 4000,
+                autoClose: 2000,
             });
             setUserCookie(res);
         })
@@ -69,7 +69,7 @@ const Signin=()=> {
                         </div>
                         <div className='md-3'>
                             <label for="Password" class="form-label-1">Password</label>
-                            <input type="password" id="Password" name="Password" className="form-control-1" required/>
+                            <input type="password" id="Password" name="Password" className="form-control-1"  required/>
                         </div>
                     </div>
                     <div className="nextbutton">

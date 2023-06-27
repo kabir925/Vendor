@@ -22,7 +22,7 @@ const BasicDetails = () => {
   );
 
   useEffect(() => {
-    
+
     const userDetailsCookie = Cookies.get("signincookie");
     if (!userDetailsCookie) {
       navigate("/login");
@@ -39,27 +39,29 @@ const BasicDetails = () => {
     // console.log(formData)
     dispatch(addVendorBasicDetails(formData));
     console.log(VendorBasic);
-   
+
 
     const id = toast.loading("Please wait...")
     await axios.patch("https://new-vendor-backend.vercel.app/api/v1/vendors/addUserInfo/", {
       data: formData,
-    },{
+    }, {
       headers: {
-        authorization :`${token}`
+        authorization: `${token}`
       }
     })
       .then((res) => {
+        
         console.log(res);
         // const jwtToken = res.data.token;
         // axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
         toast.update(id, {
-          render: "Logged in..",
+          render: "Details Saved",
           type: "success",
           isLoading: false,
           closeOnClick: true,
           autoClose: 4000,
         });
+        navigate('/taxdetails');
 
       })
       .catch((res) => {
@@ -83,7 +85,7 @@ const BasicDetails = () => {
           <form
             onSubmit={(event) => {
               formsubmit(event);
-              navigate('/Taxdetails');
+              // navigate('/taxdetails');
             }}
           >
             <div className="white-bar">
@@ -95,9 +97,9 @@ const BasicDetails = () => {
 
             {/* Navbar code */}
             <ul className="hero-section">
-              <li><NavLink className="active" to="#">Home</NavLink></li>
-              <li><NavLink className="active" to="#">Tax Details</NavLink></li>
-              <li><NavLink className="active" to="#">Bank Details</NavLink></li>
+              <li><NavLink className="active" to="/basicdetails">Home</NavLink></li>
+              <li><NavLink className="active" to="/taxdetails">Tax Details</NavLink></li>
+              <li><NavLink className="active" to="/bankdetails">Bank Details</NavLink></li>
               <li><NavLink className="active" to="#">Branch Address</NavLink></li>
               <li><NavLink className="active" to="#">Attachments</NavLink></li>
               <li><NavLink className="active" to="#">Other Details</NavLink></li>
@@ -127,6 +129,8 @@ const BasicDetails = () => {
                       id="SecondaryEmailID"
                       name="SecondaryEmailID "
                       className="form-control"
+                    
+                      required
                     />
                   </div>
                   <div className="hero-head">
@@ -138,6 +142,7 @@ const BasicDetails = () => {
                       id="Address"
                       name="Address"
                       className="form-control"
+                      pattern="^[a-zA-Z0-9\s\.\-\,]+$"
                       required
                     />
                   </div>
@@ -180,6 +185,7 @@ const BasicDetails = () => {
                       id="City"
                       name="City"
                       className="form-control-multi"
+
                       required
                     />
                   </div>
@@ -200,7 +206,7 @@ const BasicDetails = () => {
                       County:
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       id="County"
                       name="County"
                       className="form-control-multi"
@@ -216,6 +222,8 @@ const BasicDetails = () => {
                       id="Country"
                       name="Country"
                       className="form-control-multi"
+                      pattern="^[a-zA-Z\s]+$"
+                      required
 
                     />
                   </div>
@@ -231,6 +239,8 @@ const BasicDetails = () => {
                       id="PinCode"
                       name="PinCode"
                       className="form-control"
+                      pattern="^\d{6}$"
+                      required
                     />
                   </div>
                   <div className="hero-head">
@@ -242,6 +252,7 @@ const BasicDetails = () => {
                       id="CompanyEmail"
                       name="CompanyEmail "
                       className="form-control"
+                      required
                     />
                   </div>
                 </div>
@@ -252,10 +263,13 @@ const BasicDetails = () => {
                       Secondary Contact:
                     </label>
                     <input
-                      type="text"
+                      type="tel"
                       id="SecondaryMobileNumber"
                       name="SecondaryMobileNumber"
                       className="form-control"
+                      pattern="[0-9]{10}"
+                      title="Enter a 10-digit phone number"
+                      required
                     />
                   </div>
                   {/* <div className="hero-head">
@@ -283,7 +297,7 @@ const BasicDetails = () => {
                 </div>
 
                 {/* <div className="form-container"> */}
-                  {/* <div className="hero-head">
+                {/* <div className="hero-head">
                     <label htmlFor="primarynumber2" className="form-label">
                       Primary Contact 2 (Phone):
                     </label>
@@ -294,7 +308,7 @@ const BasicDetails = () => {
                       className="form-control"
                     />
                   </div> */}
-                  {/* <div className="hero-head">
+                {/* <div className="hero-head">
                     <label htmlFor="primaryemail2" className="form-label">
                       Primary Email 2:
                     </label>

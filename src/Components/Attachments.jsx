@@ -55,7 +55,7 @@ const Attachments = () => {
         formData.append("img", BankDetails, "BankDetails");
         console.log(formData);
         
-        const id = toast.loading("Please wait...");
+        const id = toast.loading("This may take some time so take a break.....");
         await axios
           .patch(
             "http://192.168.1.39:4000/api/v1/vendors/testingImg",
@@ -69,7 +69,7 @@ const Attachments = () => {
           .then((res) => {
             console.log(res);
             toast.update(id, {
-              render: "Logged in..",
+              render: "attachments added",
               type: "success",
               isLoading: false,
               closeOnClick: true,
@@ -79,7 +79,7 @@ const Attachments = () => {
           .catch((res) => {
             console.log(res.message);
             toast.update(id, {
-              render: "Incorrect Details",
+              render: res.message,
               type: "error",
               isLoading: false,
               closeOnClick: true,
@@ -240,12 +240,11 @@ const Attachments = () => {
                   id="tabs"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
-                  <option>Profile</option>
+                  <option>Attachments</option>
                   <option>Basic Details</option>
                   <option>Tax Details</option>
                   <option>Bank Details</option>
                   <option>Bank Address</option>
-                  <option>Attachments</option>
                   <option>Other Details</option>
                 </select>
               </div>
@@ -321,7 +320,7 @@ const Attachments = () => {
                         scope="row"
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
-                        PAN Number
+                        PAN Number<span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -341,7 +340,7 @@ const Attachments = () => {
                         scope="row"
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
-                        GST Number
+                        GST Number<span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -362,6 +361,7 @@ const Attachments = () => {
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
                         VAT Registration Number
+                        <span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -381,7 +381,7 @@ const Attachments = () => {
                         scope="row"
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
-                        TIN NO.
+                        TIN NO.<span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -401,7 +401,7 @@ const Attachments = () => {
                         scope="row"
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
-                        Sale Tax
+                        Sale Tax<span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -421,7 +421,7 @@ const Attachments = () => {
                         scope="row"
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
-                        MSED Registration
+                        MSED Registration<span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -442,6 +442,7 @@ const Attachments = () => {
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
                         Certificate of Incorporation
+                        <span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -462,6 +463,7 @@ const Attachments = () => {
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
                         Memorandum of Association
+                        <span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -482,6 +484,7 @@ const Attachments = () => {
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
                         Article Of Association
+                        <span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -501,7 +504,7 @@ const Attachments = () => {
                         scope="row"
                         className="px-6 py-4 font-medium  whitespace-nowrap "
                       >
-                        CancelledCheque
+                        CancelledCheque<span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
@@ -523,6 +526,7 @@ const Attachments = () => {
                       >
                         Bank Details(Bank Name, Bank Address,Bank Account No.
                         and Bank IFSC No.)
+                        <span className="text-red-500">*</span>
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input

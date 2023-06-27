@@ -30,7 +30,7 @@ const BasicDetails = () => {
   }, [navigate]);
 
 
-  const formsubmit = (e) => {
+  const formsubmit = async (e) => {
 
     e.preventDefault();
     console.log("function is working")
@@ -42,7 +42,7 @@ const BasicDetails = () => {
    
 
     const id = toast.loading("Please wait...")
-    axios.patch("https://new-vendor-backend.vercel.app/api/v1/vendors/addUserInfo/", {
+    await axios.patch("https://new-vendor-backend.vercel.app/api/v1/vendors/addUserInfo/", {
       data: formData,
     },{
       headers: {

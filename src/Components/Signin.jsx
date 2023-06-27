@@ -9,8 +9,9 @@ const Signin=()=> {
 
     const navigate=useNavigate();
     const setUserCookie=(data)=>
-    {
-        Cookies.set("signincookie","data");
+    { 
+        console.log(data);
+        Cookies.set("signincookie",data.data);
         navigate('/basicdetails');
     }
     const formsubmit = (e) => {
@@ -25,9 +26,9 @@ const Signin=()=> {
             data:formData,
         })
         .then ((res)=> {
-            console.log(res);
+            
             const jwtToken = res.data.token;
-            console.log(jwtToken);
+            
             localStorage.setItem("jwttoken",jwtToken); 
             toast.update(id,{
                 render: "Logged in..",

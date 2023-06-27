@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
 import logo from '../assets/Logo.svg'
 import { HiOutlineDesktopComputer } from 'react-icons/hi'
 import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from 'react-icons/io'
@@ -11,11 +12,19 @@ import FaceIcon from "@mui/icons-material/Face";
 import axios from 'axios';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Cookies from "js-cookie";
 
 
 const Attachments = () => {
-    const token = localStorage.getItem("jwttoken");
+  const token = localStorage.getItem("jwttoken");
+  const navigate = useNavigate();
+  useEffect(() => {
+    const userDetailsCookie = Cookies.get("signincookie");
+    if (!userDetailsCookie) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
     const [RFQ, setRFQ] = useState(false);
     const [Vendor, setVendor] = useState(false);
     const [side, setSide] = useState(true);
@@ -37,21 +46,25 @@ const Attachments = () => {
     async function handleSubmit(e) {
         console.log(PAN);
         let formData = new FormData();
-        formData.append("img", PAN, "PAN");
-        formData.append("img", GST, "GST");
-        formData.append("img", VAT, "VAT");
-        formData.append("img", TIN, "TIN");
-        formData.append("img", SalesTax, "SalesTax");
-        formData.append("img", MSED, "MSED");
+        formData.append("img", PAN, "PAN_Attach");
+        formData.append("img", GST, "GST_Attach");
+        formData.append("img", VAT, "VAT_Attach");
+        formData.append("img", TIN, "TIN_Attach");
+        formData.append("img", SalesTax, "SalesTax_Attach");
+        formData.append("img", MSED, "MSED_Attach");
         formData.append(
           "img",
           CertificationOfIncorporation,
-          "CertificationOfIncorporation"
+          "CertificationOfIncorporation_Attach"
         );
-        formData.append("img", Memorandum, "Memorandum");
-        formData.append("img", ArticleOfAssociation, "ArticleOfAssociation");
-        formData.append("img", CancelledCheque, "CancelledCheque");
-        formData.append("img", BankDetails, "BankDetails");
+        formData.append("img", Memorandum, "Memorandum_Attach");
+        formData.append(
+          "img",
+          ArticleOfAssociation,
+          "ArticleOfAssociation_Attach"
+        );
+        formData.append("img", CancelledCheque, "CancelledCheque_Attach");
+        formData.append("img", BankDetails, "BankDetails_Attach");
         console.log(formData);
 
         const id = toast.loading("This may take some time so take a break.....");

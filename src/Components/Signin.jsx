@@ -11,7 +11,7 @@ const Signin=()=> {
     const setUserCookie=(data)=>
     { 
         console.log(data);
-        Cookies.set("signincookie",data.data);
+        Cookies.set("signincookie",data);
         navigate('/basicdetails');
     }
     const formsubmit = (e) => {
@@ -22,24 +22,26 @@ const Signin=()=> {
         console.log(formData)
 
         const id=toast.loading("Please wait...")
-        axios.post("https://new-vendor-backend.vercel.app/api/v1/vendors/auth/signIn",{
-            data:formData,
-        })
-        .then ((res)=> {
-            
+        // axios.post("https://new-vendor-backend.vercel.app/api/v1/vendors/auth/signIn",{
+       
+        axios
+          .post("http://192.168.1.39:4000/api/v1/vendors/auth/signIn", {
+            data: formData,
+          })
+          .then((res) => {
             const jwtToken = res.data.token;
-            
-            localStorage.setItem("jwttoken",jwtToken); 
-            toast.update(id,{
-                render: "Logged in..",
-                type: "success",
-                isLoading: false,
-                closeOnClick: true,
-                autoClose: 2000,
+
+            localStorage.setItem("jwttoken", jwtToken);
+            toast.update(id, {
+              render: "Logged in..",
+              type: "success",
+              isLoading: false,
+              closeOnClick: true,
+              autoClose: 2000,
             });
             setUserCookie(res);
-        })
-        .catch((res) => {
+          })
+          .catch((res) => {
             console.log(res.message);
             toast.update(id, {
               render: "Incorrect Details",

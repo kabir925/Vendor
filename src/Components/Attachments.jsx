@@ -336,7 +336,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3 "
                           id="file_input"
                           required
                           name="img"
@@ -356,7 +356,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"
@@ -377,7 +377,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"
@@ -397,7 +397,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"
@@ -417,7 +417,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"
@@ -437,7 +437,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"
@@ -458,7 +458,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"
@@ -479,7 +479,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"
@@ -500,7 +500,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"
@@ -520,7 +520,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"
@@ -542,7 +542,7 @@ const Attachments = () => {
                       </th>
                       <td className="px-6 py-4  text-right">
                         <input
-                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer "
+                          className="block  text-sm float-right p-1 rounded-lg border  cursor-pointer w-1/3"
                           id="file_input"
                           required
                           type="file"

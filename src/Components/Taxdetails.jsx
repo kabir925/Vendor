@@ -82,67 +82,140 @@ const Taxdetails = () => {
                         </div>
 
                         {/* Navbar code */}
-                        <ul className="hero-section">
+
+                        <div class="w-[80%] mx-auto mt-5">
+                            {/* <div class="relative overflow-x-auto"></div>  */}
+                            <div className="sm:hidden">
+                                <label htmlFor="tabs" className="sr-only">
+                                    Select your country
+                                </label>
+                                <select
+                                    id="tabs"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                >
+                                    <option>Attachments</option>
+                                    <option>Basic Details</option>
+                                    <option>Tax Details</option>
+                                    <option>Bank Details</option>
+                                    <option>Bank Address</option>
+                                    <option>Other Details</option>
+                                </select>
+                            </div>
+                            <ul className="hidden text-sm font-medium text-center text-white divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-gray-700 ">
+                                <li className="w-full">
+                                    <a
+                                        href="/basicdetails"
+                                        className="inline-block rounded-l-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                                    >
+                                        <h6 className="">Basic Details</h6>
+                                    </a>
+                                </li>
+                                <li className="w-full">
+                                    <a
+                                        href="/taxdetails"
+                                        className="inline-block w-full p-4 bg-gray-300 text-black focus:ring-4 "
+                                        
+                                    >
+                                        <h6>Tax Details</h6>
+                                    </a>
+                                </li>
+                                <li className="w-full">
+                                    <a
+                                        href="/bankdetails"
+                                        className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                                    >
+                                        <h6>Bank Details</h6>
+                                    </a>
+                                </li>
+                                <li className="w-full">
+                                    <a
+                                        href="/bankaddress"
+                                        className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                                    >
+                                        <h6>Bank Address</h6>
+                                    </a>
+                                </li>
+                                <li className="w-full">
+                                    <a
+                                        href="/attachments"
+                                        className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                                    >
+                                        <h6>Attachments</h6>
+                                    </a>
+                                </li>
+                                <li className="w-full">
+                                    <a
+                                        href="/otherdetails"
+                                        className="inline-block w-full p-4 bg-white rounded-r-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                                    >
+                                        <h6>Other Details</h6>
+                                    </a>
+                                </li>
+                            </ul>
+
+
+                            {/* <ul className="hero-section">
                             <li><NavLink className="active" to="/basicdetails">Home</NavLink></li>
                             <li><NavLink className="active" to="/taxdetails">Tax Details</NavLink></li>
                             <li><NavLink className="active" to="/bankdetails">Bank Details</NavLink></li>
                             <li><NavLink className="active" to="#">Branch Address</NavLink></li>
                             <li><NavLink className="active" to="#">Attachments</NavLink></li>
                             <li><NavLink className="active" to="#">Other Details</NavLink></li>
-                        </ul>
-                        <div className='head-closed '>
-                            <div className='closed-class'>
-                                <div class="form-container">
-                                    <div className='hero-head'>
-                                        <label for="Pan" class="form-label">PAN</label>
-                                        <input type="text" id="Pan" name="Pan" className="form-control" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" required />
+                        </ul> */}
+                            <div className='head-closed '>
+                                <div closed-class>
+                                    <div class="form-container">
+                                        <div className='hero-head'>
+                                            <label for="Pan" class="form-label">PAN</label>
+                                            <input type="text" id="Pan" name="Pan" className="form-control" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" required />
+                                        </div>
+                                        <div className='hero-head'>
+                                            <label for="GST" class="form-label">GST</label>
+                                            <input type="text" id="GST" name="GST" className="form-control"  required />
+                                        </div>
                                     </div>
-                                    <div className='hero-head'>
-                                        <label for="GST" class="form-label">GST</label>
-                                        <input type="text" id="GST" name="GST" className="form-control" pattern="^[A-Z]{2}[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9A-Z]{1}$" required />
-                                    </div>
-                                </div>
 
-                                <div className="form-container">
-                                    <div className='hero-head'>
-                                        <label for="VAT" class="form-label">VAT</label>
-                                        <input type="text" id="VAT" name="VAT" className="form-control" pattern="^[A-Z]{2}[0-9A-Z]{2,12}$" required />
+                                    <div className="form-container">
+                                        <div className='hero-head'>
+                                            <label for="VAT" class="form-label">VAT</label>
+                                            <input type="text" id="VAT" name="VAT" className="form-control"  required />
+                                        </div>
+                                        <div className='hero-head '>
+                                            <label for="TINNumber" class="form-label">TIN </label>
+                                            <input type="text" id="TINNumber" name="TINNumber" className="form-control" required />
+                                        </div>
                                     </div>
-                                    <div className='hero-head '>
-                                        <label for="TINNumber" class="form-label">TIN </label>
-                                        <input type="text" id="TINNumber" name="TINNumber" className="form-control" required />
-                                    </div>
-                                </div>
 
 
-                                <div className="form-container-split" >
-                                    <div className='hero-head' >
-                                        <label htmlFor="SalesTax" className="form-label">Sales Tax</label>
-                                        <input type="text" id="SalesTax" name="SalesTax" className="form-control-multi" required />
+                                    <div className="form-container-split" >
+                                        <div className='hero-head' >
+                                            <label htmlFor="SalesTax" className="form-label">Sales Tax</label>
+                                            <input type="text" id="SalesTax" name="SalesTax" className="form-control-multi" required />
+                                        </div>
+                                        <div className='hero-head' >
+                                            <label htmlFor="GSTEligibility" className="form-label">GST I/P CREDIT ELIGIBILITY</label>
+                                            <input type="text" id="GSTEligibility" name="GSTEligibility" className="form-control-multi" required />
+                                        </div>
+                                        <div className='hero-head'>
+                                            <label htmlFor="MSEDRegisteration" className="form-label">MST Registration</label>
+                                            <input type="text" id="MSEDRegisteration" name="MSEDRegisteration" className="form-control-multi" required />
+                                        </div>
+                                        <div className='hero-head'>
+                                            <label htmlFor="LowerTaxDeductionCertificate" className="form-label">Lower Tax Deduction Certificate</label>
+                                            <input type="text" id="LowerTaxDeductionCertificate" name="LowerTaxDeductionCertificate" className="form-control-multi" required />
+                                        </div>
                                     </div>
-                                    <div className='hero-head' >
-                                        <label htmlFor="GSTEligibility" className="form-label">GST I/P CREDIT ELIGIBILITY</label>
-                                        <input type="text" id="GSTEligibility" name="GSTEligibility" className="form-control-multi" required />
-                                    </div>
-                                    <div className='hero-head'>
-                                        <label htmlFor="MSEDRegisteration" className="form-label">MST Registration</label>
-                                        <input type="text" id="MSEDRegisteration" name="MSEDRegisteration" className="form-control-multi" required />
-                                    </div>
-                                    <div className='hero-head'>
-                                        <label htmlFor="LowerTaxDeductionCertificate" className="form-label">Lower Tax Deduction Certificate</label>
-                                        <input type="text" id="LowerTaxDeductionCertificate" name="LowerTaxDeductionCertificate" className="form-control-multi" required />
-                                    </div>
-                                </div>
 
-                                <div className="form-container">
-                                    <div className='hero-head'>
-                                        <label for="TDSApplicabilityOnVendor" class="form-label">TDS Applicability on vendor</label>
-                                        <input type="text" id="TDSApplicabilityOnVendor" name="TDSApplicabilityOnVendor" className="form-control" required />
-                                    </div>
-                                    {/* <div className='hero-head'>
+                                    <div className="form-container">
+                                        <div className='hero-head'>
+                                            <label for="TDSApplicabilityOnVendor" class="form-label">TDS Applicability on vendor</label>
+                                            <input type="text" id="TDSApplicabilityOnVendor" name="TDSApplicabilityOnVendor" className="form-control" required />
+                                        </div>
+                                        {/* <div className='hero-head'>
                                         <label for="extraf" class="form-label">Extra Field</label>
                                         <input type="text" id="extraf" name="extraf " className="form-control" />
                                     </div> */}
+                                    </div>
                                 </div>
                             </div>
                         </div>

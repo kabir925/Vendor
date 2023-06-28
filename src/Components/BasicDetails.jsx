@@ -50,7 +50,7 @@ const BasicDetails = () => {
       }
     })
       .then((res) => {
-        
+
         console.log(res);
         // const jwtToken = res.data.token;
         // axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
@@ -96,14 +96,85 @@ const BasicDetails = () => {
             </div>
 
             {/* Navbar code */}
-            <ul className="hero-section">
+            
+            <div class="w-[80%] mx-auto mt-5">
+            <div className="sm:hidden">
+              <label htmlFor="tabs" className="sr-only">
+                Select your country
+              </label>
+              <select
+                id="tabs"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              >
+                <option>Attachments</option>
+                <option>Basic Details</option>
+                <option>Tax Details</option>
+                <option>Bank Details</option>
+                <option>Bank Address</option>
+                <option>Other Details</option>
+              </select>
+            </div>
+            <ul className="hidden text-sm font-medium text-center text-white divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-gray-700 ">
+              <li className="w-full">
+                <a
+                  href="/basicdetails"
+                  className="inline-block w-full p-4 bg-gray-300 text-black focus:ring-4 "
+                >
+                  <h6 className="">Basic Details</h6>
+                </a>
+              </li>
+              <li className="w-full">
+                <a
+                  href="/taxdetails"
+                  className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                >
+                  <h6>Tax Details</h6>
+                </a>
+              </li>
+              <li className="w-full">
+                <a
+                  href="/bankdetails"
+                  className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                >
+                  <h6>Bank Details</h6>
+                </a>
+              </li>
+              <li className="w-full">
+                <a
+                  href="/bankaddress"
+                  className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                >
+                  <h6>Bank Address</h6>
+                </a>
+              </li>
+              <li className="w-full">
+                <a
+                  href="/attachments"
+                  className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                >
+                  <h6>Attachments</h6>
+                </a>
+              </li>
+              <li className="w-full">
+                <a
+                  href="/otherdetails"
+                  className="inline-block w-full p-4 bg-white rounded-r-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                >
+                  <h6>Other Details</h6>
+                </a>
+              </li>
+            </ul>
+
+
+
+            {/* <ul className="hero-section">
               <li><NavLink className="active" to="/basicdetails">Home</NavLink></li>
               <li><NavLink className="active" to="/taxdetails">Tax Details</NavLink></li>
               <li><NavLink className="active" to="/bankdetails">Bank Details</NavLink></li>
               <li><NavLink className="active" to="#">Branch Address</NavLink></li>
               <li><NavLink className="active" to="#">Attachments</NavLink></li>
               <li><NavLink className="active" to="#">Other Details</NavLink></li>
-            </ul>
+            </ul> */}
 
             <div className="head-closed ">
               <div className="closed-class">
@@ -129,7 +200,7 @@ const BasicDetails = () => {
                       id="SecondaryEmailID"
                       name="SecondaryEmailID "
                       className="form-control"
-                    
+
                       required
                     />
                   </div>
@@ -256,7 +327,6 @@ const BasicDetails = () => {
                     />
                   </div>
                 </div>
-
                 <div className="form-container">
                   <div className="hero-head">
                     <label htmlFor="SecondaryMobileNumber" className="form-label">
@@ -272,60 +342,14 @@ const BasicDetails = () => {
                       required
                     />
                   </div>
-                  {/* <div className="hero-head">
-                    <label htmlFor="primarynumber2" className="form-label">
-                      Primary Contact 2 (Phone):
-                    </label>
-                    <input
-                      type="text"
-                      id="primarynumber2"
-                      name="primarynumber2"
-                      className="form-control"
-                    />
-                  </div> */}
-                  {/* <div className="hero-head">
-                    <label htmlFor="primaryemail" className="form-label">
-                      Primary Email 1:
-                    </label>
-                    <input
-                      type="email"
-                      id="primaryemail"
-                      name="primaryemail "
-                      className="form-control"
-                    />
-                  </div> */}
                 </div>
-
-                {/* <div className="form-container"> */}
-                {/* <div className="hero-head">
-                    <label htmlFor="primarynumber2" className="form-label">
-                      Primary Contact 2 (Phone):
-                    </label>
-                    <input
-                      type="text"
-                      id="primarynumber2"
-                      name="primarynumber2"
-                      className="form-control"
-                    />
-                  </div> */}
-                {/* <div className="hero-head">
-                    <label htmlFor="primaryemail2" className="form-label">
-                      Primary Email 2:
-                    </label>
-                    <input
-                      type="email"
-                      id="primaryemail2"
-                      name="primaryemail2 "
-                      className="form-control"
-                    />
-                  </div> */}
-                {/* </div> */}
               </div>
             </div>
             <div className="nextbutton">
               <button type="submit" className="next-btn">
                 Next
               </button>
+            </div>
             </div>
           </form>
         </div>

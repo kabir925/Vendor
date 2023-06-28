@@ -9,9 +9,10 @@ import Navbar from './Components/Navbar.jsx'
 import Signup from './Components/Signup.jsx'
 import Signin from './Components/Signin.jsx'
 import Attachments from './Components/Attachments';
-import Invoices from './Components/Invoices';
 import AddInvoices from './Components/AddInvoices';
 // import Attachment from './Components/Attachment';
+import Invoices from './Components/Invoices';
+import Profile from './Components/Profile';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path="/attachments" element={<Attachments />} />
             <Route path="/allinvoices" element={<Invoices />} />
             <Route path="/addinvoices" element={<AddInvoices />} />
+            <Route path="/profile" element={<Profile />} />
             {/* <Route path='/attachment' element={<Attachment/>}/> */}
           </Routes>
         </BrowserRouter>

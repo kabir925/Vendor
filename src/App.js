@@ -10,13 +10,9 @@ import Signup from './Components/Signup.jsx'
 import Signin from './Components/Signin.jsx'
 import Attachments from './Components/Attachments';
 import AddInvoices from './Components/AddInvoices';
-<<<<<<< HEAD
 import Otherdetails from './Components/Otherdetails';
-=======
-// import Attachment from './Components/Attachment';
-import Invoices from './Components/Invoices';
-import Profile from './Components/Profile';
->>>>>>> cfc9c87e6f58544c3d4f9895e632d314033baa9f
+import Helpdesk from './Components/Helpdesk';
+import Invoices from './Components/Invoices.jsx'
 
 function App() {
   return (
@@ -41,17 +37,12 @@ function App() {
             <Route path="/bankdetails" element={<Bankdetails />} />
             <Route path="/taxdetails" element={<Taxdetails />} />
             <Route path="/navbar" element={<Navbar />} />
-            {/* <Route path='/signup' element={<Signup/>}/> */}
             <Route path="/login" element={<Signin />} />
             <Route path="/attachments" element={<Attachments />} />
             <Route path="/allinvoices" element={<Invoices />} />
             <Route path="/addinvoices" element={<AddInvoices />} />
-<<<<<<< HEAD
             <Route path='/otherdetails' element={<Otherdetails/>}/>
-=======
-            <Route path="/profile" element={<Profile />} />
->>>>>>> cfc9c87e6f58544c3d4f9895e632d314033baa9f
-            {/* <Route path='/attachment' element={<Attachment/>}/> */}
+            <Route path='/helpdesk' element={<Helpdesk/>}/>
           </Routes>
         </BrowserRouter>
       </div>

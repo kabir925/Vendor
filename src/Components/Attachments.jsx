@@ -16,6 +16,13 @@ import Cookies from "js-cookie";
 
 
 const Attachments = () => {
+  const[userData,setuserData]=useState({
+    data: {
+        vendor: {
+            PrimaryEmailID:""
+        }
+    }
+})
   const token = localStorage.getItem("jwttoken");
   const navigate = useNavigate();
   useEffect(() => {
@@ -23,6 +30,7 @@ const Attachments = () => {
     if (!userDetailsCookie) {
       navigate("/login");
     }
+    setuserData(JSON.parse(userDetailsCookie))
   }, [navigate]);
 
     const [RFQ, setRFQ] = useState(false);
@@ -235,7 +243,7 @@ const Attachments = () => {
         <div className="bg-gray-200 w-full ">
           <div className="bg-white w-full lg:h-12">
             <div className="lg:float-right pt-2">
-              <span className="name">Ankush Thakur</span>
+              <span className="name">{userData.data.vendor.PrimaryEmailID}</span>
               <div className="icon">
                 <FaceIcon />
               </div>

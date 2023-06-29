@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Taxdetails.css'
 import Sidebar from './Sidebar';
 import { NavLink } from 'react-router-dom';
@@ -11,6 +11,13 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const Taxdetails = () => {
+    const[userData,setuserData]=useState({
+        data: {
+            vendor: {
+                PrimaryEmailID:""
+            }
+        }
+    })
     const navigate = useNavigate();
     const token = localStorage.getItem("jwttoken");
 
@@ -20,6 +27,7 @@ const Taxdetails = () => {
         if (!userDetailsCookie) {
             navigate("/login");
         }
+        setuserData(JSON.parse(userDetailsCookie));
     }, [navigate]);
     const formsubmit = (e) => {
 
@@ -75,7 +83,7 @@ const Taxdetails = () => {
                         // navigate('/bankdetails')
                     }}>
                         <div className="white-bar">
-                            <span class="name">Ankush Thakur</span>
+                            <span class="name">{userData.data.vendor.PrimaryEmailID}</span>
                             <div class="icon">
                                 <FaceIcon />
                             </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './BasicDetails.css'
 import { useEffect } from 'react';
 import Sidebar from './Sidebar';
@@ -14,6 +14,13 @@ import { addVendorBasicDetails } from "../Redux/vendorSlice";
 
 
 const BasicDetails = () => {
+  const [userData,setuserData]=useState({
+    data: {
+      vendor: {
+        PrimaryEmailID:""
+      }
+    }
+  })
   const token = localStorage.getItem("jwttoken");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -27,6 +34,8 @@ const BasicDetails = () => {
     if (!userDetailsCookie) {
       navigate("/login");
     }
+    // console.log(JSON.parse(userDetailsCookie));
+    setuserData(JSON.parse(userDetailsCookie));
   }, [navigate]);
 
 
@@ -89,7 +98,7 @@ const BasicDetails = () => {
             }}
           >
             <div className="white-bar">
-              <span className="name">Ankush Thakur</span>
+              <span className="name">{userData.data.vendor.PrimaryEmailID}</span>
               <div className="icon">
                 <FaceIcon />
               </div>

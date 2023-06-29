@@ -11,7 +11,7 @@ import Signin from './Components/Signin.jsx'
 import Attachments from './Components/Attachments';
 import Invoices from './Components/Invoices';
 import AddInvoices from './Components/AddInvoices';
-// import Attachment from './Components/Attachment';
+import Otherdetails from './Components/Otherdetails';
 
 function App() {
   return (
@@ -41,6 +41,7 @@ function App() {
             <Route path="/attachments" element={<Attachments />} />
             <Route path="/allinvoices" element={<Invoices />} />
             <Route path="/addinvoices" element={<AddInvoices />} />
+            <Route path='/otherdetails' element={<Otherdetails/>}/>
             {/* <Route path='/attachment' element={<Attachment/>}/> */}
           </Routes>
         </BrowserRouter>

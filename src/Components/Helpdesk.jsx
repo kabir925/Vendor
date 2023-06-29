@@ -4,6 +4,7 @@ import './Helpdesk.css'
 import Sidebar from "./Sidebar";
 import FaceIcon from '@mui/icons-material/Face';
 
+
 const Helpdesk = () => {
     const formsubmit=(e)=> {
         e.preventDefault();
@@ -31,8 +32,9 @@ const Helpdesk = () => {
                         {/* Navbar code */}
 
                         <div class="w-[80%] mx-auto mt-5">
+                        
                             {/* <div class="relative overflow-x-auto"></div>  */}
-                            <div className="sm:hidden">
+                            {/* <div className="sm:hidden">
                                 <label htmlFor="tabs" className="sr-only">
                                     Select your country
                                 </label>
@@ -99,7 +101,10 @@ const Helpdesk = () => {
                                         <h6>Other Details</h6>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> */}
+                            <div className="md-1">
+                          <h4 className="help-desk"><Help className="help-class"/>Help Desk</h4>
+                        </div>
 
                             <div className='head-closed'>
                                 <div className='closed-class'>

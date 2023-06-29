@@ -19,12 +19,11 @@ const AddInvoices = () => {
     }
   })
   useEffect(() => {
-    const userDetailsCookie = JSON.parse(Cookies.get("signincookie"));
+    const userDetailsCookie = Cookies.get("signincookie");
     if (!userDetailsCookie) {
       navigate("/login");
     }
-    console.log(userDetailsCookie)
-    setuserData(userDetailsCookie);
+    setuserData(JSON.parse(userDetailsCookie));
   }, [navigate]);
 
 
@@ -42,13 +41,9 @@ const AddInvoices = () => {
   const [currency, setcurrency] = useState();
   const [Quantity, setQuantity] = useState();
   const [Attachment, setAttachment] = useState();
-  const [NetAmount, setNetAmount] = useState(0);
   const [PONumber, setPONumber] = useState();
   const [InvoiceNumber, setInvoiceNumber] = useState();
-  useEffect(() => {
-    console.log(NetAmount);
-  }, [NetAmount]);
-  
+
 
   // formData
   // const [invoiceData, setInvoiceData] = useState({
@@ -63,48 +58,56 @@ const AddInvoices = () => {
  
 
   const submitInvoice = async (event) => {
+    const net = Number(Gross)+Number(Tax1)+Number(Tax2)+Number(Tax3)-Number(discount)
     event.preventDefault();
     let formData = new FormData();
+    formData.append("CompanyCode", CompanyCode);
+    formData.append("CompanyName", CompanyName);
+    formData.append("Gross", Gross);
+    formData.append("Tax1", Tax1);
+    formData.append("Tax2", Tax2);
+    formData.append("Tax3", Tax3);
+    formData.append("discount", discount);
     formData.append("description", description);
     formData.append("date", date);
     formData.append("currency", currency);
     formData.append("quantity", Quantity);
     formData.append("attachment", Attachment, InvoiceNumber);
-    formData.append("netAmount", NetAmount);
+    formData.append("netAmount", net);
     formData.append("PONumber", PONumber);
     formData.append("invoicenumber", InvoiceNumber);
     console.log(formData);
 
-    const id = toast.loading("Please wait...");
-    await axios
-      .post("http://192.168.1.39:4000/api/v1/vendors/addInvoice", formData, {
-        headers: {
-          authorization: `${token}`,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        // const jwtToken = res.data.token;
-        // axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
-        toast.update(id, {
-          render: "Invoice Created",
-          type: "success",
-          isLoading: false,
-          closeOnClick: true,
-          autoClose: 4000,
-        });
-        // navigate("/allinvoice");
-      })
-      .catch((res) => {
-        console.log(res.message);
-        toast.update(id, {
-          render: res.message,
-          type: "error",
-          isLoading: false,
-          closeOnClick: true,
-          autoClose: 5000,
-        });
-      });
+    // const id = toast.loading("Please wait...");
+    // await axios
+    //   .post("/http://192.168.1.40:4000/api/v1/vendors/addInvoice", formData, {
+    //     headers: {
+    //       authorization: `${token}`,
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     // const jwtToken = res.data.token;
+    //     // axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
+    //     toast.update(id, {
+    //       render: "Invoice Created",
+    //       type: "success",
+    //       isLoading: false,
+    //       closeOnClick: true,
+    //       autoClose: 4000,
+    //     });
+    //     // navigate("/allinvoice");
+    //   })
+    //   .catch((res) => {
+    //     console.log(res.message);
+    //     toast.update(id, {
+    //       render: res.message,
+    //       type: "error",
+    //       isLoading: false,
+    //       closeOnClick: true,
+    //       autoClose: 5000,
+    //     });
+    //   });
 
   };
 
@@ -132,17 +135,17 @@ const AddInvoices = () => {
                <h2 className="font-bold text-lg">Vender Registration</h2>
                <form action="" onSubmit={submitInvoice} id="invoiceForm">
                  <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 my-6">
-                   <div class="m">
+                   <div className="m">
                      <label
-                       for="CompanyCode"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="CompanyCode"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Company Code
                      </label>
                      <input
                        type="text"
                        id="CompanyCode"
-                       class=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        //  placeholder="XJ1248"
                        onChange={(e) => {
                          setCompanyCode(e.target.value);
@@ -150,117 +153,117 @@ const AddInvoices = () => {
                        required
                      />
                    </div>
-                   <div class="">
+                   <div className="">
                      <label
-                       for="CompanyName"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="CompanyName"
+                       className="block mb-2 text-sm  text-left"
                      >
-                       CompanyName
+                       Company Name
                      </label>
                      <input
                        type="text"
                        id="CompanyName"
-                       class=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 e dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400 e dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setCompanyName(e.target.value);
                        }}
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="InvoiceDate"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="InvoiceDate"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Invoice Date
                      </label>
                      <input
                        type="date"
                        id="InvoiceDate"
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setdate(e.target.value);
                        }}
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="InvoiceNumber"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="InvoiceNumber"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Invoice Number
                      </label>
                      <input
                        type="number"
                        id="InvoiceNumber"
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setInvoiceNumber(e.target.value);
                        }}
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="PONumber"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="PONumber"
+                       className="block mb-2 text-sm  text-left"
                      >
                        PO Number
                      </label>
                      <input
                        type="number"
                        id="PONumber"
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setPONumber(e.target.value);
                        }}
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="description"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="description"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Description
                      </label>
                      <input
                        type="text"
                        id="description"
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setdescription(e.target.value);
                        }}
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="Quantity"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="Quantity"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Quantity
                      </label>
                      <input
                        type="number"
                        id="Quantity"
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setQuantity(e.target.value);
                        }}
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="currency"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="currency"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Currency
                      </label>
                      <select
-                       class="border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className="border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        id="currency"
                        name="currency"
                        onChange={(e) => {
@@ -495,101 +498,77 @@ const AddInvoices = () => {
                        <option value="ZMK">ZMK - Zambian Kwacha - ZK</option>
                      </select>
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="GrossInvoiceAmount"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="GrossInvoiceAmount"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Gross Invoice Amount
                      </label>
                      <input
                        type="number"
                        id="GrossInvoiceAmount"
-                       //  value={Gross}
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        value={Gross}
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setGross(e.target.value);
-                          setNetAmount(
-                            Number(Gross) +
-                              Number(Tax1) +
-                              Number(Tax2) +
-                              Number(Tax3) -
-                              Number(discount)
-                          );
+                          
                        }}
                      />
                    </div>
-                   <div class="mb-2">
-                     <label for="TAX1" class="block mb-2 text-sm  text-left">
+                   <div className="mb-2">
+                     <label htmlFor="TAX1" className="block mb-2 text-sm  text-left">
                        TAX1
                      </label>
                      <input
                        type="number"
                        id="TAX1"
                        value={Tax1}
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setTax1(e.target.value);
-                          setNetAmount(
-                            Number(Gross) +
-                              Number(Tax1) +
-                              Number(Tax2) +
-                              Number(Tax3) -
-                              Number(discount)
-                          );
+                          
                        }}
                      />
                    </div>
-                   <div class="mb-2">
-                     <label for="TAX2" class="block mb-2 text-sm  text-left">
+                   <div className="mb-2">
+                     <label htmlFor="TAX2" className="block mb-2 text-sm  text-left">
                        TAX2
                      </label>
                      <input
                        type="number"
                        id="TAX2"
                        value={Tax2}
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setTax2(e.target.value);
-                          setNetAmount(
-                            Number(Gross) +
-                              Number(Tax1) +
-                              Number(Tax2) +
-                              Number(Tax3) -
-                              Number(discount)
-                          );
+                         
                        }}
                      />
                    </div>
-                   <div class="mb-2">
-                     <label for="TAX3" class="block mb-2 text-sm  text-left">
+                   <div className="mb-2">
+                     <label htmlFor="TAX3" className="block mb-2 text-sm  text-left">
                        TAX3
                      </label>
                      <input
                        type="number"
                        id="TAX3"
                        value={Tax3}
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setTax3(e.target.value);
-                          setNetAmount(
-                            Number(Gross) +
-                              Number(Tax1) +
-                              Number(Tax2) +
-                              Number(Tax3) -
-                              Number(discount)
-                          );
+                          
                        }}
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="discount"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="discount"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Discount
                      </label>
@@ -597,24 +576,18 @@ const AddInvoices = () => {
                        type="number"
                        id="discount"
                        value={discount}
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setdiscount(e.target.value);
-                          setNetAmount(
-                            Number(Gross) +
-                              Number(Tax1) +
-                              Number(Tax2) +
-                              Number(Tax3) -
-                              Number(discount)
-                          );
+                          
                        }}
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="NetAmount"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="NetAmount"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Net Amount
                      </label>
@@ -628,15 +601,15 @@ const AddInvoices = () => {
                          Number(Tax3) -
                          Number(discount)
                        }
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        disabled
                        
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="attachments"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="attachments"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Attachments
                      </label>
@@ -644,17 +617,17 @@ const AddInvoices = () => {
                        type="file"
                        id="attachments"
                        multiple
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                        required
                        onChange={(e) => {
                          setAttachment(e.target.files[0]);
                        }}
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="CompanyContactPerson"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="CompanyContactPerson"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Company Contact Person
                      </label>
@@ -664,14 +637,14 @@ const AddInvoices = () => {
                        disabled
                        placeholder={userData.data.vendor.PrimaryEmailID}
                        multiple
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                       required
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="CompanyContactEmail"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="CompanyContactEmail"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Company Contact Email
                      </label>
@@ -681,14 +654,14 @@ const AddInvoices = () => {
                        disabled
                        placeholder={userData.data.vendor.PrimaryEmailID}
                        multiple
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                       required
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      
                      />
                    </div>
-                   <div class="mb-2">
+                   <div className="mb-2">
                      <label
-                       for="CompanyContactNumber"
-                       class="block mb-2 text-sm  text-left"
+                       htmlFor="CompanyContactNumber"
+                       className="block mb-2 text-sm  text-left"
                      >
                        Company Contact number
                      </label>
@@ -698,8 +671,8 @@ const AddInvoices = () => {
                        disabled
                        placeholder={userData.data.vendor.SecondaryMobileNumber}
                        multiple
-                       class=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                       required
+                       className=" border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       
                      />
                    </div>
                  </div>

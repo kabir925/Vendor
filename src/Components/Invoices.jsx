@@ -21,13 +21,13 @@ const Invoices = () => {
   
 
   useEffect(() => {
-    const userDetailsCookie = JSON.parse(Cookies.get("signincookie"));
+    const userDetailsCookie = Cookies.get("signincookie");
     if (!userDetailsCookie) {
       navigate("/login");
     }
-    setuserData(userDetailsCookie);
+    setuserData(JSON.parse(userDetailsCookie));
     axios
-      .get("http://192.168.1.39:4000/api/v1/vendors/getAllInvoices", {
+      .get("http://192.168.1.40:4000/api/v1/vendors/getAllInvoices", {
         headers: {
           authorization: `${token}`,
         },
@@ -52,8 +52,8 @@ const Invoices = () => {
       <div className="flex flex-col lg:flex-row">
         <TailwindSidebar />
 
-        <div className="bg-gray-200 w-full ">
-          <div className="bg-white w-full lg:h-12">
+        <div className="bg-gray-200 w-screen ">
+          <div className="bg-white  lg:h-12">
             <div className="lg:float-right pt-2">
               <span className="name">
                 {userData.data.vendor.PrimaryEmailID}
@@ -64,7 +64,7 @@ const Invoices = () => {
             </div>
           </div>
 
-          <div className="w-[85%] mx-auto mt-5 bg-white">
+          <div className="w-[170vh] mx-auto mt-5 bg-white">
             <div className="h-12 bg-gray-800 text-white text-lg p-2   pl-5 text-left">
               Invoice Submissions
             </div>
@@ -75,8 +75,8 @@ const Invoices = () => {
                 // handleSubmit(e);
               }}
             >
-              <div className="relative overflow-x-auto p-5">
-                <table className="w-full text-sm text-center ">
+              <div className=" overflow-x-auto p-5">
+                <table className=" text-sm text-center ">
                   <thead className="text-xs uppercase dark:bg-gray-200 text-gray-600 ">
                     <tr>
                       <th scope="col" className="px-6 py-5 ">
@@ -103,6 +103,27 @@ const Invoices = () => {
                       <th scope="col" className="px-6 py-5">
                         Attachment
                       </th>
+                      <th scope="col" className="px-6 py-5">
+                        Company Code
+                      </th>
+                      <th scope="col" className="px-6 py-5">
+                        Company Name
+                      </th>
+                      <th scope="col" className="px-6 py-5">
+                        Gross Amount
+                      </th>
+                      <th scope="col" className="px-6 py-5">
+                        Tax 1
+                      </th>
+                      <th scope="col" className="px-6 py-5">
+                        Tax 2
+                      </th>
+                      <th scope="col" className="px-6 py-5">
+                        Tax 3
+                      </th>
+                      <th scope="col" className="px-6 py-5">
+                        discount
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -119,10 +140,10 @@ const Invoices = () => {
                     ) : (
                       invoices.map((invoice, index) => {
                         return (
-                          <tr className="bg-white border-b ">
+                          <tr className="bg-white border-b " key={index}>
                             <th
                               scope="row"
-                              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
+                              className="px-6 py-7 font-medium text-gray-900 whitespace-nowrap "
                             >
                               {index + 1}
                             </th>
@@ -134,6 +155,27 @@ const Invoices = () => {
                             <td className="px-6 py-4">{invoice.date}</td>
                             <td className="px-6 py-4">{invoice.currency}</td>
                             <td className="px-6 py-4">{invoice.quantity}</td>
+                            <td className="px-6 py-4">
+                              {invoice.attachment.length}
+                            </td>
+                            <td className="px-6 py-4">
+                              {invoice.attachment.length}
+                            </td>
+                            <td className="px-6 py-4">
+                              {invoice.attachment.length}
+                            </td>
+                            <td className="px-6 py-4">
+                              {invoice.attachment.length}
+                            </td>
+                            <td className="px-6 py-4">
+                              {invoice.attachment.length}
+                            </td>
+                            <td className="px-6 py-4">
+                              {invoice.attachment.length}
+                            </td>
+                            <td className="px-6 py-4">
+                              {invoice.attachment.length}
+                            </td>
                             <td className="px-6 py-4">
                               {invoice.attachment.length}
                             </td>

@@ -20,7 +20,7 @@ const Profile = () => {
          navigate("/login");
        }
        axios
-         .get("http://192.168.1.39:4000/api/v1/vendors/getInfo", {
+         .get("http://192.168.1.40:4000/api/v1/vendors/getInfo", {
            headers: {
              authorization: `${token}`,
            },

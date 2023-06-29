@@ -11,7 +11,7 @@ const Signin=()=> {
     const setUserCookie=(data)=>
     { 
         console.log(data);
-        Cookies.set("signincookie",data);
+        Cookies.set("signincookie", JSON.stringify(data));
         navigate('/basicdetails');
     }
     const formsubmit = (e) => {

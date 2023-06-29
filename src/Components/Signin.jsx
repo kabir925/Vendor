@@ -11,7 +11,7 @@ const Signin=()=> {
     const setUserCookie=(data)=>
     { 
         console.log(data);
-        Cookies.set("signincookie",data);
+        Cookies.set("signincookie", JSON.stringify(data));
         navigate('/basicdetails');
     }
     const formsubmit = (e) => {
@@ -25,7 +25,7 @@ const Signin=()=> {
         // axios.post("https://new-vendor-backend.vercel.app/api/v1/vendors/auth/signIn",{
        
         axios
-          .post("http://192.168.1.39:4000/api/v1/vendors/auth/signIn", {
+          .post("http://192.168.1.40:4000/api/v1/vendors/auth/signIn", {
             data: formData,
           })
           .then((res) => {

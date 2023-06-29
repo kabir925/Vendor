@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import logo from "../assets/Logo.svg";
 import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { IoIosArrowDown, IoIosArrowUp, IoMdClose } from "react-icons/io";
@@ -8,11 +8,11 @@ import { MdTrackChanges } from "react-icons/md";
 import { BsNewspaper, BsListNested } from "react-icons/bs";
 import { FaMailBulk } from "react-icons/fa";
 import { RiAdminFill } from "react-icons/ri";
-import FaceIcon from "@mui/icons-material/Face";
-import axios from "axios";
-import { toast } from "react-toastify";
+// import FaceIcon from "@mui/icons-material/Face";
+// import axios from "axios";
+// import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 const TailwindSidebar = () => {
     

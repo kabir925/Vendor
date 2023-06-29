@@ -86,6 +86,9 @@ const Invoices = () => {
                         Net Amount
                       </th>
                       <th scope="col" className="px-6 py-5">
+                        status
+                      </th>
+                      <th scope="col" className="px-6 py-5">
                         Description
                       </th>
                       <th scope="col" className="px-6 py-5">
@@ -148,6 +151,7 @@ const Invoices = () => {
                               {index + 1}
                             </th>
                             <td className="px-6 py-4">{invoice.netAmount}</td>
+                            <td className="px-6 py-4">{invoice.invoicestatus}</td>
                             <td className="px-6 py-4">{invoice.description}</td>
                             <td className="px-6 py-4">
                               {invoice.invoicenumber}
@@ -158,27 +162,13 @@ const Invoices = () => {
                             <td className="px-6 py-4">
                               {invoice.attachment.length}
                             </td>
-                            <td className="px-6 py-4">
-                              {invoice.attachment.length}
-                            </td>
-                            <td className="px-6 py-4">
-                              {invoice.attachment.length}
-                            </td>
-                            <td className="px-6 py-4">
-                              {invoice.attachment.length}
-                            </td>
-                            <td className="px-6 py-4">
-                              {invoice.attachment.length}
-                            </td>
-                            <td className="px-6 py-4">
-                              {invoice.attachment.length}
-                            </td>
-                            <td className="px-6 py-4">
-                              {invoice.attachment.length}
-                            </td>
-                            <td className="px-6 py-4">
-                              {invoice.attachment.length}
-                            </td>
+                            <td className="px-6 py-4">{invoice.CompanyCode}</td>
+                            <td className="px-6 py-4">{invoice.CompanyName}</td>
+                            <td className="px-6 py-4">{invoice.Gross}</td>
+                            <td className="px-6 py-4">{invoice.Tax1}</td>
+                            <td className="px-6 py-4">{invoice.Tax2}</td>
+                            <td className="px-6 py-4">{invoice.Tax3}</td>
+                            <td className="px-6 py-4">{invoice.discount}</td>
                           </tr>
                         );
                       })

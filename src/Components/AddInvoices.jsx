@@ -38,7 +38,7 @@ const AddInvoices = () => {
   const [discount, setdiscount] = useState(0);
   const [description, setdescription] = useState()
   const [date, setdate] = useState();
-  const [currency, setcurrency] = useState();
+  const [currency, setcurrency] = useState("AFN");
   const [Quantity, setQuantity] = useState();
   const [Attachment, setAttachment] = useState();
   const [PONumber, setPONumber] = useState();
@@ -72,42 +72,42 @@ const AddInvoices = () => {
     formData.append("date", date);
     formData.append("currency", currency);
     formData.append("quantity", Quantity);
-    formData.append("attachment", Attachment, InvoiceNumber);
+    formData.append("attachment", Attachment, `${InvoiceNumber}`);
     formData.append("netAmount", net);
     formData.append("PONumber", PONumber);
     formData.append("invoicenumber", InvoiceNumber);
     console.log(formData);
 
-    // const id = toast.loading("Please wait...");
-    // await axios
-    //   .post("/http://192.168.1.40:4000/api/v1/vendors/addInvoice", formData, {
-    //     headers: {
-    //       authorization: `${token}`,
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     // const jwtToken = res.data.token;
-    //     // axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
-    //     toast.update(id, {
-    //       render: "Invoice Created",
-    //       type: "success",
-    //       isLoading: false,
-    //       closeOnClick: true,
-    //       autoClose: 4000,
-    //     });
-    //     // navigate("/allinvoice");
-    //   })
-    //   .catch((res) => {
-    //     console.log(res.message);
-    //     toast.update(id, {
-    //       render: res.message,
-    //       type: "error",
-    //       isLoading: false,
-    //       closeOnClick: true,
-    //       autoClose: 5000,
-    //     });
-    //   });
+    const id = toast.loading("Please wait...");
+    await axios
+      .post("http://192.168.1.40:4000/api/v1/vendors/addInvoice", formData, {
+        headers: {
+          authorization: `${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        // const jwtToken = res.data.token;
+        // axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
+        toast.update(id, {
+          render: "Invoice Created",
+          type: "success",
+          isLoading: false,
+          closeOnClick: true,
+          autoClose: 4000,
+        });
+        // navigate("/allinvoice");
+      })
+      .catch((res) => {
+        console.log(res.message);
+        toast.update(id, {
+          render: res.message,
+          type: "error",
+          isLoading: false,
+          closeOnClick: true,
+          autoClose: 5000,
+        });
+      });
 
   };
 
@@ -269,6 +269,7 @@ const AddInvoices = () => {
                        onChange={(e) => {
                          setcurrency(e.target.value);
                        }}
+                       
                      >
                        <option value="AFN">AFN - Afghan Afghani - ؋</option>
                        <option value="ALL">ALL - Albanian Lek - Lek</option>

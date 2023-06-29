@@ -9,9 +9,14 @@ import Navbar from './Components/Navbar.jsx'
 import Signup from './Components/Signup.jsx'
 import Signin from './Components/Signin.jsx'
 import Attachments from './Components/Attachments';
-import Invoices from './Components/Invoices';
 import AddInvoices from './Components/AddInvoices';
+<<<<<<< HEAD
 import Otherdetails from './Components/Otherdetails';
+=======
+// import Attachment from './Components/Attachment';
+import Invoices from './Components/Invoices';
+import Profile from './Components/Profile';
+>>>>>>> cfc9c87e6f58544c3d4f9895e632d314033baa9f
 
 function App() {
   return (
@@ -41,7 +46,11 @@ function App() {
             <Route path="/attachments" element={<Attachments />} />
             <Route path="/allinvoices" element={<Invoices />} />
             <Route path="/addinvoices" element={<AddInvoices />} />
+<<<<<<< HEAD
             <Route path='/otherdetails' element={<Otherdetails/>}/>
+=======
+            <Route path="/profile" element={<Profile />} />
+>>>>>>> cfc9c87e6f58544c3d4f9895e632d314033baa9f
             {/* <Route path='/attachment' element={<Attachment/>}/> */}
           </Routes>
         </BrowserRouter>

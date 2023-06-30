@@ -80,7 +80,7 @@ const AddInvoices = () => {
 
     const id = toast.loading("Please wait...");
     await axios
-      .post("http://192.168.1.40:4000/api/v1/vendors/addInvoice", formData, {
+      .post("/vendors/addInvoice", formData, {
         headers: {
           authorization: `${token}`,
         },

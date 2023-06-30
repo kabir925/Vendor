@@ -51,7 +51,7 @@ const BasicDetails = () => {
 
 
     const id = toast.loading("Please wait...")
-    await axios.patch("https://new-vendor-backend.vercel.app/api/v1/vendors/addUserInfo/", {
+    await axios.patch("/vendors/addUserInfo/", {
       data: formData,
     }, {
       headers: {

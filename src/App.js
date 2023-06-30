@@ -1,5 +1,6 @@
 import './App.css';
 import { ToastContainer } from 'react-toastify';
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BasicDetails from './Components/BasicDetails.jsx';
@@ -15,6 +16,8 @@ import Helpdesk from './Components/Helpdesk';
 import Invoices from './Components/Invoices.jsx'
 
 function App() {
+   axios.defaults.baseURL = "http://192.168.1.40:4000/api/v1";
+
   return (
     <>
       <ToastContainer

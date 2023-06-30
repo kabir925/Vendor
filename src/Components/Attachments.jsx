@@ -78,7 +78,7 @@ const Attachments = () => {
         const id = toast.loading("This may take some time so take a break.....");
         await axios
           .patch(
-            "http://192.168.1.40:4000/api/v1/vendors/testingImg",
+            "/vendors/testingImg",
             formData,
             {
               headers: {

@@ -27,7 +27,7 @@ const Invoices = () => {
     }
     setuserData(JSON.parse(userDetailsCookie));
     axios
-      .get("http://192.168.1.40:4000/api/v1/vendors/getAllInvoices", {
+      .get("/vendors/getAllInvoices", {
         headers: {
           authorization: `${token}`,
         },

@@ -138,10 +138,13 @@ const TailwindSidebar = () => {
                 <h6>Communication</h6>
               </div>
               {/* {/ Attachment /} */}
-              <div className="flex flex-row  text-white gap-2   ">
-                <HiOutlineDesktopComputer className="mt-1" />
-                <h6>Attachment</h6>
-              </div>
+              <a href="/viewattachments">
+                <div className="flex flex-row  text-white gap-2   ">
+                  <HiOutlineDesktopComputer className="mt-1" />
+                  <h6>Attachment</h6>
+                </div>
+              </a>
+
               {/* {/ Admin /} */}
               <div className="flex flex-row  text-white gap-2   ">
                 <RiAdminFill className="mt-1" />

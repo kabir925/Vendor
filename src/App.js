@@ -14,6 +14,7 @@ import AddInvoices from './Components/AddInvoices';
 import Otherdetails from './Components/Otherdetails';
 import Helpdesk from './Components/Helpdesk';
 import Invoices from './Components/Invoices.jsx'
+import ViewAttachments from './Components/Views/ViewAttachments';
 
 function App() {
    axios.defaults.baseURL = "http://192.168.1.40:4000/api/v1";
@@ -44,8 +45,9 @@ function App() {
             <Route path="/attachments" element={<Attachments />} />
             <Route path="/allinvoices" element={<Invoices />} />
             <Route path="/addinvoices" element={<AddInvoices />} />
-            <Route path='/otherdetails' element={<Otherdetails/>}/>
-            <Route path='/helpdesk' element={<Helpdesk/>}/>
+            <Route path="/otherdetails" element={<Otherdetails />} />
+            <Route path="/helpdesk" element={<Helpdesk />} />
+            <Route path="/viewattachments" element={<ViewAttachments />} />
           </Routes>
         </BrowserRouter>
       </div>

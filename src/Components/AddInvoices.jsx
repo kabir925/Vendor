@@ -23,7 +23,10 @@ const AddInvoices = () => {
     if (!userDetailsCookie) {
       navigate("/login");
     }
-    setuserData(JSON.parse(userDetailsCookie));
+    else {
+      setuserData(JSON.parse(userDetailsCookie));
+    }
+    
   }, [navigate]);
 
 

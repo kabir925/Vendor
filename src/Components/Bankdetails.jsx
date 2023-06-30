@@ -9,8 +9,16 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useState } from 'react';
 
 const Bankdetails = () => {
+    const[userData,setuserData]=useState({
+        data: {
+            vendor: {
+                PrimaryEmailID:""
+            }
+        }
+    })
     const token = localStorage.getItem("jwttoken");
     const navigate = useNavigate();
     useEffect(() => {
@@ -19,6 +27,7 @@ const Bankdetails = () => {
         if (!userDetailsCookie) {
             navigate("/login");
         }
+        setuserData(JSON.parse(userDetailsCookie))
     }, [navigate]);
 
 
@@ -76,7 +85,7 @@ const Bankdetails = () => {
                         // navigate('/Taxdetails');
                     }}>
                         <div className="white-bar">
-                            <span class="name">Ankush Thakur</span>
+                            <span class="name">{userData.data.vendor.PrimaryEmailID}</span>
                             <div class="icon">
                                 <FaceIcon />
                             </div>

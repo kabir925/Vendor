@@ -64,7 +64,7 @@ const Invoices = () => {
             </div>
           </div>
 
-          <div className="w-[170vh] mx-auto mt-5 bg-white">
+          <div className="w-72 lg:w-[70rem]  mx-auto mt-5 bg-white">
             <div className="h-12 bg-gray-800 text-white text-lg p-2   pl-5 text-left">
               Invoice Submissions
             </div>
@@ -151,7 +151,9 @@ const Invoices = () => {
                               {index + 1}
                             </th>
                             <td className="px-6 py-4">{invoice.netAmount}</td>
-                            <td className="px-6 py-4">{invoice.invoicestatus}</td>
+                            <td className="px-6 py-4">
+                              {invoice.invoicestatus}
+                            </td>
                             <td className="px-6 py-4">{invoice.description}</td>
                             <td className="px-6 py-4">
                               {invoice.invoicenumber}

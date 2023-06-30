@@ -13,6 +13,7 @@ import AddInvoices from './Components/AddInvoices';
 import Otherdetails from './Components/Otherdetails';
 import Helpdesk from './Components/Helpdesk';
 import Invoices from './Components/Invoices.jsx'
+import ViewAttachments from './Components/Views/ViewAttachments';
 
 function App() {
   return (
@@ -41,8 +42,9 @@ function App() {
             <Route path="/attachments" element={<Attachments />} />
             <Route path="/allinvoices" element={<Invoices />} />
             <Route path="/addinvoices" element={<AddInvoices />} />
-            <Route path='/otherdetails' element={<Otherdetails/>}/>
-            <Route path='/helpdesk' element={<Helpdesk/>}/>
+            <Route path="/otherdetails" element={<Otherdetails />} />
+            <Route path="/helpdesk" element={<Helpdesk />} />
+            <Route path="/viewattachments" element={<ViewAttachments />} />
           </Routes>
         </BrowserRouter>
       </div>

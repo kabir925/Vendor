@@ -1,13 +1,21 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import FaceIcon from "@mui/icons-material/Face";
+import axios from "axios";
 import { Navigate } from "react-router-dom";
 import TailwindSidebar from "../../TailwindSidebar";
 const HelpQuery = () => {
   const token = localStorage.getItem("jwttoken");
+  console.log(token)
   const navigate = useNavigate();
   const [query, setquery] = useState([]);
+  useEffect(()=>{
+    const getData = async()=>{
+      const data = await axios.get('vendors/getAllQueries',{headers:{authorization: `${token}`}})
+      setquery(data.data.message)
+    }
+    getData()
+  },[])
   return (
     <>
       <div className="flex flex-col lg:flex-row">
@@ -77,8 +85,9 @@ const HelpQuery = () => {
                             >
                               {index + 1}
                             </th>
-                            <td className="px-6 py-4">Hello</td>
-                            <td className="px-6 py-4">Hello</td>
+                            <td className="px-6 py-4">{query.subject}</td>
+                            <td className="px-6 py-4">{query.status}</td>
+                            <td className="px-6 py-4">{query.description}</td>
                           </tr>
                         );
                       })

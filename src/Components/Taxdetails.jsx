@@ -39,7 +39,7 @@ const Taxdetails = () => {
 
 
         const id = toast.loading("Please wait...")
-        axios.patch("https://new-vendor-backend.vercel.app/api/v1/vendors/addUserInfo/", {
+        axios.patch("/vendors/addUserInfo/", {
             data: formData,
         }, {
             headers: {

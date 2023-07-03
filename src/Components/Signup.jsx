@@ -15,7 +15,7 @@ const Signup = () => {
         console.log(formData)
         
         const id=toast.loading("Please wait...")
-        axios.post("https://new-vendor-backend.vercel.app/api/v1/vendors/auth/signUp",{
+        axios.post("/vendors/auth/signUp",{
             data:formData,
         })
         .then ((res)=> {

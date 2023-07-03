@@ -1,5 +1,6 @@
 import './App.css';
 import { ToastContainer } from 'react-toastify';
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BasicDetails from './Components/BasicDetails.jsx';
@@ -14,9 +15,12 @@ import Otherdetails from './Components/Otherdetails';
 import Helpdesk from './Components/Helpdesk';
 import Invoices from './Components/Invoices.jsx'
 import ViewAttachments from './Components/Views/ViewAttachments';
-import Profile from "./Components/Profile"
+import Profile from './Components/Profile.jsx'
+import AdminHelpdesk from './Components/Admin/Helpdesk/AdminHelpdesk';
 
 function App() {
+   axios.defaults.baseURL = "http://192.168.1.40:4000/api/v1";
+
   return (
     <>
       <ToastContainer
@@ -47,6 +51,8 @@ function App() {
             <Route path="/helpdesk" element={<Helpdesk />} />
             <Route path="profile" element={<Profile />} />
             <Route path="/viewattachments" element={<ViewAttachments />} />
+            <Route path='/adminhelp' element={<AdminHelpdesk/>}/>
+            <Route path='/profile' element={<Profile/>}/>
           </Routes>
         </BrowserRouter>
       </div>

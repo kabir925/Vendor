@@ -45,13 +45,13 @@ const BasicDetails = () => {
     console.log("function is working")
     let formData = new FormData(e.target);
     formData = Object.fromEntries(formData);
-    // console.log(formData)
+    console.log(formData)
     dispatch(addVendorBasicDetails(formData));
     console.log(VendorBasic);
 
 
     const id = toast.loading("Please wait...")
-    await axios.patch("https://new-vendor-backend.vercel.app/api/v1/vendors/addUserInfo/", {
+    await axios.patch("/vendors/addUserInfo/", {
       data: formData,
     }, {
       headers: {

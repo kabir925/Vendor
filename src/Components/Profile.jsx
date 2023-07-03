@@ -13,11 +13,21 @@ const Profile = () => {
     const [Data, setData] = useState({
         Invoices: []
     })
+  const [userData, setuserData] = useState({
+    data: {
+      vendor: {
+        
+      }
+    },
+  });
     const navigate = useNavigate();
      useEffect(() => {
        const userDetailsCookie = Cookies.get("signincookie");
        if (!userDetailsCookie) {
          navigate("/login");
+       }
+       else {
+         setuserData(JSON.parse(userDetailsCookie));
        }
        axios
          .get("/vendors/getInfo", {
@@ -26,7 +36,7 @@ const Profile = () => {
            },
          })
          .then((res) => {
-             console.log(res);
+            //  console.log(res);
              setData(res.data.data);
          })
          .catch((err) => {
@@ -34,11 +44,11 @@ const Profile = () => {
          });
      }, [navigate, token]);
     
-    useEffect(() => {
+    // useEffect(() => {
       
-    console.log(Data)
+    // console.log(userData)
       
-    }, [Data])
+    // }, [Data])
     
   return (
     <>
@@ -47,7 +57,7 @@ const Profile = () => {
         <div className="bg-gray-200 w-full">
           <div className="bg-white w-full lg:h-12">
             <div className="lg:float-right pt-2">
-              <span className="name">{Data.PrimaryEmailID}</span>
+              <span className="name">{userData.data.vendor.PrimaryEmailID}</span>
               <div className="icon">
                 <FaceIcon />
               </div>

@@ -8,9 +8,9 @@ import axios from 'axios';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from 'js-cookie';
-import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from 'react-router-dom';
-import { addVendorBasicDetails } from "../Redux/vendorSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { NavLink } from 'react-router-dom';
+// import { addVendorBasicDetails } from "../Redux/vendorSlice";
 
 
 const BasicDetails = () => {
@@ -23,10 +23,10 @@ const BasicDetails = () => {
   })
   const token = localStorage.getItem("jwttoken");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const VendorBasic = useSelector(
-    (state) => state.VendorInfo.VendorBasicDetails
-  );
+  // const dispatch = useDispatch();
+  // const VendorBasic = useSelector(
+  //   (state) => state.VendorInfo.VendorBasicDetails
+  // );
 
   useEffect(() => {
 
@@ -46,8 +46,8 @@ const BasicDetails = () => {
     let formData = new FormData(e.target);
     formData = Object.fromEntries(formData);
     console.log(formData)
-    dispatch(addVendorBasicDetails(formData));
-    console.log(VendorBasic);
+    // dispatch(addVendorBasicDetails(formData));
+    // console.log(VendorBasic);
 
 
     const id = toast.loading("Please wait...")

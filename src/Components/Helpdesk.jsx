@@ -111,7 +111,7 @@ const Helpdesk = () => {
                                     <div className="form-container">
                                         <div className='hero-head'>
                                             <label for="description" class="form-label">Description</label>
-                                            <textarea type="textarea" rows="10" cols="60" id="Description" name="Description " className="form-control" required />
+                                            <textarea type="textarea" rows="10" cols="60" id="description" name="description" className="form-control" required />
                                         </div>
                                     </div>
                                 </div>

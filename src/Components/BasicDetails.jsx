@@ -207,7 +207,7 @@ const BasicDetails = () => {
                     <input
                       type="email"
                       id="SecondaryEmailID"
-                      name="SecondaryEmailID "
+                      name="SecondaryEmailID"
                       className="form-control"
 
                       required

@@ -19,7 +19,7 @@ const Profile = () => {
        if (!userDetailsCookie) {
          navigate("/login");
        }
-       axios
+        axios
          .get("http://192.168.1.40:4000/api/v1/vendors/getInfo", {
            headers: {
              authorization: `${token}`,
@@ -44,7 +44,7 @@ const Profile = () => {
     <>
       <div className="flex flex-col lg:flex-row">
         <TailwindSidebar />
-        <div className="bg-gray-200 w-full h-screen">
+        <div className="bg-gray-200 w-full">
           <div className="bg-white w-full lg:h-12">
             <div className="lg:float-right pt-2">
               <span className="name">{Data.PrimaryEmailID}</span>
@@ -54,8 +54,8 @@ const Profile = () => {
             </div>
           </div>
 
-          <div className=" bg-white p-5 shadow mt-20 mx-10">
-            <div className="grid grid-cols-1 md:grid-cols-3">
+          <div className=" bg-white p-5 shadow my-20 mx-10 ">
+            <div className="grid grid-cols-1 md:grid-cols-3 ">
               <div className="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
                 <div>
                   <p className="font-bold text-gray-700 text-xl">
@@ -65,10 +65,10 @@ const Profile = () => {
                 </div>
               </div>
               <div className="relative">
-                <div className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+                <div className="w-40 h-40 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-24 w-24"
+                    className="h-14 w-14"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -80,35 +80,145 @@ const Profile = () => {
                 </div>
               </div>
 
-              {/* <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
-                <button className="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
-                  Connect
+              <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
+                {/* <button className="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                  Help
+                </button> */}
+                <button className="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5" onClick={ () =>{
+                  navigate('/helpdesk')
+                }}>
+                  Help Desk
                 </button>
-                <button className="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
-                  Message
-                </button>
-              </div> */}
+              </div>
             </div>
-            <div className="mt-20 text-center border-b pb-9">
-              <h1 className="lg:text-4xl text-lg font-medium text-gray-700">
+            <div className="mt-10 text-center  pb-9">
+              <h1 className="lg:text-3xl text-lg font-medium text-gray-700">
                 {Data.PrimaryEmailID}
               </h1>
               <p className="font-light text-gray-600 mt-3">
-                {Data.NameOfTheCompany}
+                Company - {Data.NameOfTheCompany}
               </p>
             </div>
-            <p className="mt-8 text-gray-500">Address - {Data.Address}</p>
-            <p className=" text-gray-500">PinCode - {Data.PinCode}</p>
-            <p className=" text-gray-500">Country - {Data.Country}</p>
-            <p className=" text-gray-500">
-              Article Of Association -{" "}
-              <button>
-                <a href={Data.ArticleOfAssociation_Attach} target="_blank" rel="noreferrer">
-                  download
-                </a>
-              </button>{" "}
-            </p>
-            <p className="mt-2 text-gray-500">University of Computer Science</p>
+
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg w-[60%] mx-auto">
+              <table class="w-full text-sm text-left text-gray-500 mx-auto">
+                <thead class="text-xs text-gray-700 uppercase ">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 bg-gray-50 bg-gray-800 text-white"
+                    >
+                      Feilds
+                    </th>
+                    <th
+                      scope="col"
+                      class="px-6 py-3 bg-gray-700 text-white text-right  border-slate-100"
+                    >
+                      Value
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      Secondary Email
+                    </th>
+                    <td class="px-6 py-4 text-right">
+                      {Data.SecondaryEmailID}
+                    </td>
+                  </tr>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      Address
+                    </th>
+                    <td class="px-6 py-4 text-right">{Data.Address}</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      Floor
+                    </th>
+                    <td class="px-6 py-4 text-right">{Data.Floor}</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      Street
+                    </th>
+                    <td class="px-6 py-4 text-right">{Data.Street}</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      City
+                    </th>
+                    <td class="px-6 py-4 text-right">{Data.City}</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      Nearest Train Station
+                    </th>
+                    <td class="px-6 py-4 text-right">
+                      {Data.NearestTrainStation}
+                    </td>
+                  </tr>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      County
+                    </th>
+                    <td class="px-6 py-4 text-right">{Data.County}</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      Postal Code
+                    </th>
+                    <td class="px-6 py-4 text-right">{Data.PinCode}</td>
+                  </tr>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      Secondary Contact
+                    </th>
+                    <td class="px-6 py-4 text-right">
+                      {Data.SecondaryMobileNumber}
+                    </td>
+                  </tr>
+                  <tr class="border-b border-gray-200 ">
+                    <th
+                      scope="row"
+                      class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 "
+                    >
+                      Country
+                    </th>
+                    <td class="px-6 py-4 text-right">{Data.Country}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             {/* <div className="mt-12 flex flex-col justify-center">
               <p className="text-gray-600 text-center font-light lg:px-16">
                 An artist of considerable range, Ryan — the name taken by

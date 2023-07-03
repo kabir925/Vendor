@@ -14,6 +14,7 @@ import Otherdetails from './Components/Otherdetails';
 import Helpdesk from './Components/Helpdesk';
 import Invoices from './Components/Invoices.jsx'
 import ViewAttachments from './Components/Views/ViewAttachments';
+import Profile from "./Components/Profile"
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="/addinvoices" element={<AddInvoices />} />
             <Route path="/otherdetails" element={<Otherdetails />} />
             <Route path="/helpdesk" element={<Helpdesk />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="/viewattachments" element={<ViewAttachments />} />
           </Routes>
         </BrowserRouter>

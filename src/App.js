@@ -50,6 +50,7 @@ function App() {
             <Route path="/addinvoices" element={<AddInvoices />} />
             <Route path="/otherdetails" element={<Otherdetails />} />
             <Route path="/helpdesk" element={<Helpdesk />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="/viewattachments" element={<ViewAttachments />} />
             <Route path='/adminhelp' element={<AdminHelpdesk/>}/>
             <Route path='/profile' element={<Profile/>}/>

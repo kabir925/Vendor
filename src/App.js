@@ -17,6 +17,7 @@ import Invoices from './Components/Invoices.jsx'
 import ViewAttachments from './Components/Views/ViewAttachments';
 import Profile from './Components/Profile.jsx'
 import AdminHelpdesk from './Components/Admin/Helpdesk/AdminHelpdesk';
+import HelpQuery from './Components/Admin/Helpdesk/HelpQuery';
 
 function App() {
    axios.defaults.baseURL = "http://192.168.1.40:4000/api/v1";
@@ -52,6 +53,7 @@ function App() {
             <Route path="/viewattachments" element={<ViewAttachments />} />
             <Route path='/adminhelp' element={<AdminHelpdesk/>}/>
             <Route path='/profile' element={<Profile/>}/>
+            <Route path='/helpquery' element={<HelpQuery/>}/>
           </Routes>
         </BrowserRouter>
       </div>

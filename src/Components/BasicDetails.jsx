@@ -45,7 +45,7 @@ const BasicDetails = () => {
     console.log("function is working")
     let formData = new FormData(e.target);
     formData = Object.fromEntries(formData);
-    // console.log(formData)
+    console.log(formData)
     dispatch(addVendorBasicDetails(formData));
     console.log(VendorBasic);
 
@@ -207,7 +207,7 @@ const BasicDetails = () => {
                     <input
                       type="email"
                       id="SecondaryEmailID"
-                      name="SecondaryEmailID "
+                      name="SecondaryEmailID"
                       className="form-control"
 
                       required

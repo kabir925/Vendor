@@ -14,11 +14,11 @@ const Invoices = () => {
   const [userData, setuserData] = useState({
     data: {
       vendor: {
-        PrimaryEmailID:""
+        PrimaryEmailID: ""
       },
     },
   });
-  
+
 
   useEffect(() => {
     const userDetailsCookie = Cookies.get("signincookie");

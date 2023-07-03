@@ -1,11 +1,8 @@
-import { Help } from "@mui/icons-material";
 import React from "react";
-import './Helpdesk.css'
-import Sidebar from "./Sidebar";
+import Sidebar from '../../Sidebar.jsx'
+import { Help } from "@mui/icons-material";
 import FaceIcon from '@mui/icons-material/Face';
-
-
-const Helpdesk = () => {
+const AdminHelpdesk = () => {
     const formsubmit = (e) => {
         e.preventDefault();
         console.log("Function works!");
@@ -23,14 +20,13 @@ const Helpdesk = () => {
 
                     }}>
                         <div className="white-bar">
-                            <span class="name">Ankush Thakur</span>
+                            <span class="name">Admin</span>
                             <div class="icon">
                                 <FaceIcon />
                             </div>
                         </div>
 
                         <div class="w-[80%] mx-auto mt-5">
-
                             <div className="md-1">
                                 <h4 className="help-desk"><Help className="help-class" />Help Desk</h4>
                             </div>
@@ -40,20 +36,26 @@ const Helpdesk = () => {
                                     <div class="form-container">
                                         <div className='hero-head'>
                                             <label for="subject" class="form-label">Subject</label>
-                                            <input type="text" id="subject" name="subject" className="form-control" required />
+                                            <input type="text" id="subject" name="subject" className="form-control" />
                                         </div>
                                     </div>
                                     <div className="form-container">
                                         <div className='hero-head'>
                                             <label for="Description" class="form-label">Description</label>
-                                            <textarea type="textarea" rows="10" cols="60" id="Description" name="Description " className="form-control" required />
+                                            <textarea type="textarea" rows="6" cols="60" id="Description" name="Description " className="form-control" />
+                                        </div>
+                                    </div>
+                                    <div className="form-container">
+                                        <div className='hero-head'>
+                                            <label for="Response" class="form-label">Response</label>
+                                            <textarea type="textarea" rows="6" cols="60" id="Response" name="Response " className="form-control" required />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="nextbutton">
                                 <button type="submit" className="next-btn">
-                                    Next
+                                    Send
                                 </button>
                             </div>
                         </div>
@@ -65,4 +67,4 @@ const Helpdesk = () => {
     )
 }
 
-export default Helpdesk;
+export default AdminHelpdesk;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import './Signin.css'
 import {  toast } from "react-toastify";
@@ -6,8 +6,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 const Signin=()=> {
-
     const navigate=useNavigate();
+    useEffect(()=>{
+        if(Cookies.get('signincookie')) {
+            navigate('/profile')
+            return 
+        }
+    },[])
     const setUserCookie=(data)=>
     { 
         console.log(data);

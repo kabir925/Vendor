@@ -1,12 +1,20 @@
-import React from "react";
+import React,{useEffect} from "react";
 import axios from "axios";
 import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import './Signup.css'
+import Cookies from 'js-cookie';
+
 import { useNavigate } from "react-router-dom";
 const Signup = () => {
 
     const navigate=useNavigate();
+    useEffect(()=>{
+        if(Cookies.get('signincookie')) {
+            navigate('/profile')
+            return 
+        }
+    },[]);
     const formsubmit = (e) => {
         e.preventDefault();
         console.log("Working")

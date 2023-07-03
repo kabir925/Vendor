@@ -16,6 +16,7 @@ import Helpdesk from './Components/Helpdesk';
 import Invoices from './Components/Invoices.jsx'
 import ViewAttachments from './Components/Views/ViewAttachments';
 import Profile from './Components/Profile.jsx'
+import Helpdeskorg from './Components/Helpdeskorg';
 import AdminHelpdesk from './Components/Admin/Helpdesk/AdminHelpdesk';
 import HelpQuery from './Components/Admin/Helpdesk/HelpQuery';
 
@@ -55,6 +56,7 @@ function App() {
             <Route path='/adminhelp' element={<AdminHelpdesk/>}/>
             <Route path='/profile' element={<Profile/>}/>
             <Route path='/helpquery' element={<HelpQuery/>}/>
+            <Route path='/helpdeskorg' element={<Helpdeskorg/>}/>
           </Routes>
         </BrowserRouter>
       </div>

@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import FaceIcon from "@mui/icons-material/Face";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import TailwindSidebar from "../../TailwindSidebar";
 const HelpQuery = () => {
   const token = localStorage.getItem("jwttoken");
@@ -11,6 +11,10 @@ const HelpQuery = () => {
   const [query, setquery] = useState([]);
   useEffect(() => {
     const getData = async () => {
+      const userDetailsCookie = Cookies.get("signincookie");
+      if (!userDetailsCookie) {
+        navigate("/login");
+      }
       const data = await axios.get("vendors/getAllQueries", {
         headers: { authorization: `${token}` },
       });

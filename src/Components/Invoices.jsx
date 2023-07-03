@@ -24,7 +24,9 @@ const Invoices = () => {
     if (!userDetailsCookie) {
       navigate("/login");
     }
-    setuserData(JSON.parse(userDetailsCookie));
+    else{
+      setuserData(JSON.parse(userDetailsCookie))
+     }
     axios
       .get("/vendors/getAllInvoices", {
         headers: {

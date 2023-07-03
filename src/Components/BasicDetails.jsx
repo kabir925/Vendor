@@ -35,7 +35,9 @@ const BasicDetails = () => {
       navigate("/login");
     }
     // console.log(JSON.parse(userDetailsCookie));
-    setuserData(JSON.parse(userDetailsCookie));
+    else{
+      setuserData(JSON.parse(userDetailsCookie))
+     }
   }, [navigate]);
 
 

@@ -30,7 +30,9 @@ const Attachments = () => {
     if (!userDetailsCookie) {
       navigate("/login");
     }
-    setuserData(JSON.parse(userDetailsCookie))
+    else{
+      setuserData(JSON.parse(userDetailsCookie))
+     }
   }, [navigate]);
 
     const [RFQ, setRFQ] = useState(false);

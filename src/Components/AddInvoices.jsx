@@ -135,7 +135,7 @@ const AddInvoices = () => {
                <h2 className="font-[500] text-lg">Add Invoice</h2>
              </div>
              <div className="bg-white px-12 py-8 border text-[#1C2434]">
-               <h2 className="font-bold text-lg">Vender Registration</h2>
+               <h2 className="font-bold text-lg">Invoice Submission</h2>
                <form action="" onSubmit={submitInvoice} id="invoiceForm">
                  <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 my-6">
                    <div className="m">

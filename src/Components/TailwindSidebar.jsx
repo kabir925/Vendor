@@ -8,9 +8,14 @@ import { MdTrackChanges } from "react-icons/md";
 import { BsNewspaper, BsListNested } from "react-icons/bs";
 import { FaMailBulk } from "react-icons/fa";
 import { RiAdminFill } from "react-icons/ri";
+import {AiOutlineLogout} from 'react-icons/ai'
+import Cookies from "js-cookie";
+
 // import FaceIcon from "@mui/icons-material/Face";
 // import axios from "axios";
 // import { toast } from "react-toastify";
+
+import {Link} from 'react-router-dom'
 import "react-toastify/dist/ReactToastify.css";
 // import Cookies from "js-cookie";
 
@@ -133,23 +138,34 @@ const TailwindSidebar = () => {
                 <h6>Bids</h6>
               </div>
               {/* {/ Communication /} */}
+              <Link to='/helpdesk'>
               <div className="flex flex-row  text-white gap-2   ">
                 <FaMailBulk className="mt-1" />
                 <h6>Communication</h6>
               </div>
+              </Link>
               {/* {/ Attachment /} */}
-              <a href="/viewattachments">
+              <Link to="/viewattachments">
                 <div className="flex flex-row  text-white gap-2   ">
                   <HiOutlineDesktopComputer className="mt-1" />
                   <h6>Attachment</h6>
                 </div>
-              </a>
+              </Link>
 
               {/* {/ Admin /} */}
               <div className="flex flex-row  text-white gap-2   ">
                 <RiAdminFill className="mt-1" />
                 <h6>Admin</h6>
               </div>
+              {/* Logout */}
+              <Link to='/login'>
+              <div className="flex flex-row  text-white gap-2 " onClick={()=>{
+                  localStorage.removeItem("jwttoken");
+                  Cookies.remove('signincookie');
+                }}>
+                <AiOutlineLogout className="mt-1" />
+                <h6>Logout</h6>
+              </div></Link>
             </div>
           </div>
         </div>

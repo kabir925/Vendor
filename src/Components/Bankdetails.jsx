@@ -27,7 +27,9 @@ const Bankdetails = () => {
         if (!userDetailsCookie) {
             navigate("/login");
         }
+       else{
         setuserData(JSON.parse(userDetailsCookie))
+       }
     }, [navigate]);
 
 

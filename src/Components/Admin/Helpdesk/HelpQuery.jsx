@@ -9,13 +9,15 @@ const HelpQuery = () => {
   console.log(token)
   const navigate = useNavigate();
   const [query, setquery] = useState([]);
-  useEffect(()=>{
-    const getData = async()=>{
-      const data = await axios.get('vendors/getAllQueries',{headers:{authorization: `${token}`}})
-      setquery(data.data.message)
-    }
-    getData()
-  },[])
+  useEffect(() => {
+    const getData = async () => {
+      const data = await axios.get("vendors/getAllQueries", {
+        headers: { authorization: `${token}` },
+      });
+      setquery(data.data.message);
+    };
+    getData();
+  }, [navigate]);
   return (
     <>
       <div className="flex flex-col lg:flex-row">

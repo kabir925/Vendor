@@ -125,56 +125,57 @@ const BasicDetails = () => {
                 <option>Other Details</option>
               </select>
             </div>
-            <ul className="hidden text-sm font-medium text-center text-white divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-gray-700 ">
-              <li className="w-full">
-                <a
-                  href="/basicdetails"
-                  className="inline-block w-full p-4 bg-gray-300 text-black focus:ring-4 "
-                >
-                  <h6 className="">Basic Details</h6>
-                </a>
-              </li>
-              <li className="w-full">
-                <a
-                  href="/taxdetails"
-                  className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                >
-                  <h6>Tax Details</h6>
-                </a>
-              </li>
-              <li className="w-full">
-                <a
-                  href="/bankdetails"
-                  className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                >
-                  <h6>Bank Details</h6>
-                </a>
-              </li>
-              <li className="w-full">
-                <a
-                  href="/bankaddress"
-                  className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                >
-                  <h6>Bank Address</h6>
-                </a>
-              </li>
-              <li className="w-full">
-                <a
-                  href="/attachments"
-                  className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                >
-                  <h6>Attachments</h6>
-                </a>
-              </li>
-              <li className="w-full">
-                <a
-                  href="/otherdetails"
-                  className="inline-block w-full p-4 bg-white rounded-r-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                >
-                  <h6>Other Details</h6>
-                </a>
-              </li>
-            </ul>
+            <ul className="hidden text-sm font-medium text-center text-white divide-x divide-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 ">
+                <li className="w-full">
+                  <a
+                    href="/basicdetails"
+                    className="inline-block w-full p-4 bg-gray-300 text-black focus:ring-4 "
+                  >
+                    <h6 className="">Basic Details</h6>
+                  </a>
+                </li>
+                <li className="w-full">
+                  <a
+                    href="/taxdetails"
+                    className="inline-block w-full p-4 bg-gray-800 hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                  >
+                    <h6>Tax Details</h6>
+                  </a>
+                </li>
+                <li className="w-full">
+                  <a
+                    href="/bankdetails"
+                    className="inline-block w-full p-4 bg-gray-800 hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                  >
+                    <h6>Bank Details</h6>
+                  </a>
+                </li>
+                <li className="w-full">
+                  <a
+                    href="/bankaddress"
+                    className="inline-block w-full p-4 bg-gray-800 hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                  >
+                    <h6>Bank Address</h6>
+                  </a>
+                </li>
+                <li className="w-full">
+                  <a
+                    href="/attachments"
+                    className="inline-block w-full p-4 bg-gray-800 hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+
+                  >
+                    <h6>Attachments</h6>
+                  </a>
+                </li>
+                <li className="w-full">
+                  <a
+                    href="/otherdetails"
+                    className="inline-block w-full p-4 bg-gray-800 rounded-r-lg hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                  >
+                    <h6>Other Details</h6>
+                  </a>
+                </li>
+              </ul>
 
 
 

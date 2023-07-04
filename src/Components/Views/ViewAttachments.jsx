@@ -24,8 +24,8 @@ const ViewAttachments = () => {
        if (!userDetailsCookie) {
          navigate("/login");
          }
-         console.log(JSON.parse(userDetailsCookie))
-         setuserData(JSON.parse(userDetailsCookie));
+         else{console.log(JSON.parse(userDetailsCookie))
+         setuserData(JSON.parse(userDetailsCookie));}
          axios
            .get("http://192.168.1.40:4000/api/v1/vendors/getInfo", {
              headers: {

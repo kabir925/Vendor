@@ -1,14 +1,83 @@
-import React from "react";
-import { Help } from "@mui/icons-material";
-import TailwindSidebar from "../../TailwindSidebar";
+import React, { useEffect } from "react";
+import TailwindSidebar from "./TailwindSidebar";
+import { json, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import { useState } from "react";
+import { toast } from "react-toastify";
 import FaceIcon from "@mui/icons-material/Face";
-const AdminHelpdesk = () => {
-  const formsubmit = (e) => {
+import axios from "axios";
+
+
+
+const Helpdeskorg = () => {
+  const [selectedDate, setSelectedDate] = useState(
+    new Date().toISOString().slice(0, 10)
+  );
+  const token = localStorage.getItem("jwttoken");
+  const navigate = useNavigate();
+  const [attach0, setattach0] = useState()
+  const [attach1, setattach1] = useState();
+
+  const [userData, setuserData] = useState({
+    data: {
+      vendor: {
+        PrimaryEmailID: "",
+        _id: "",
+        NameOfTheCompany: "",
+      },
+    },  
+  });
+  useEffect(() => {
+   
+    const userDetailsCookie = Cookies.get("signincookie");
+    console.log(JSON.parse(userDetailsCookie));
+    if (!userDetailsCookie) {
+      navigate("/login");
+    } else {
+      setuserData(JSON.parse(userDetailsCookie));
+    }
+  }, [navigate]);
+
+  const formsubmit = async (e) => {
     e.preventDefault();
-    console.log("Function works!");
+    console.log("Data Entered!");
     let formData = new FormData(e.target);
-    formData = Object.fromEntries(formData);
+    formData.append("attachment", attach0, "attach0");
+    formData.append("attachment", attach1, "attach1");
     console.log(formData);
+    const id = toast.loading("Please wait...");
+    await axios
+      .post(
+        "/vendors/addQuery",
+        formData,
+        {
+          headers: {
+            authorization: `${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        // const jwtToken = res.data.token;
+        // axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
+        toast.update(id, {
+          render: "Details Saved",
+          type: "success",
+          isLoading: false,
+          closeOnClick: true,
+          autoClose: 4000,
+        });
+      })
+      .catch((res) => {
+        console.log(res.message);
+        toast.update(id, {
+          render: "Incorrect Details",
+          type: "error",
+          isLoading: false,
+          closeOnClick: true,
+          autoClose: 5000,
+        });
+      });
   };
   return (
     <div className="flex flex-col lg:flex-row">
@@ -16,7 +85,7 @@ const AdminHelpdesk = () => {
       <div className="bg-gray-200 w-screen ">
         <div className="bg-white  lg:h-12">
           <div className="lg:float-right pt-2">
-            <span className="name">Admin</span>
+            <span className="name">{userData.data.vendor.PrimaryEmailID}</span>
             <div className="icon">
               <FaceIcon />
             </div>
@@ -43,10 +112,11 @@ const AdminHelpdesk = () => {
                 <input
                   type="date"
                   name="date"
-                  // defaultValue={selectedDate} readOnly
-                  // value={selectedDate}
+                  defaultValue={selectedDate}
+                  readOnly
+                  value={selectedDate}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                  // onChange={(e) => setSelectedDate(e.target.value)}
+                  onChange={(e) => setSelectedDate(e.target.value)}
                 />
               </div>
               <div>
@@ -58,7 +128,7 @@ const AdminHelpdesk = () => {
                 </label>
                 <input
                   name="vendor"
-                  // value={userData.data.vendor._id}
+                  value={userData.data.vendor._id}
                   id="last_name"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
                   //   placeholder="Doe"
@@ -73,26 +143,9 @@ const AdminHelpdesk = () => {
                   Company Name
                 </label>
                 <input
-                  // value={userData.data.vendor.NameOfTheCompany}
+                  value={userData.data.vendor.NameOfTheCompany}
                   id="company"
                   name="companyname"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
-                  //   placeholder="Flowbite"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  for="company"
-                  class="block mb-2 text-sm font-medium text-gray-900 lg:float-left"
-                >
-                  Company Contact
-                </label>
-                <input
-                type="number"
-                  // value={userData.data.vendor.NameOfTheCompany}
-                  id="companycontact"
-                  name="companycontact"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
                   //   placeholder="Flowbite"
                   required
@@ -116,24 +169,6 @@ const AdminHelpdesk = () => {
                   <option value="Others">Others</option>
                 </select>
               </div>
-
-              <div>
-                <label
-                  for="company"
-                  class="block mb-2 text-sm font-medium text-gray-900 lg:float-left"
-                >
-                  Company Email
-                </label>
-                <input
-                type="email"
-                  // value={userData.data.vendor.NameOfTheCompany}
-                  id="companyemail"
-                  name="companyemail"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
-                  //   placeholder="Flowbite"
-                  required
-                />
-              </div>
               <div>
                 <label
                   for="website"
@@ -145,29 +180,47 @@ const AdminHelpdesk = () => {
                   type="text"
                   name="desc"
                   id="website"
-                  class="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
-                  //   placeholder="flowbite.com"
-                  requi
-                  red
-                />
-              </div>
-              <div>
-                <label
-                  for="response"
-                  class="block mb-2 text-sm font-medium text-gray-900 lg:float-left"
-                >
-                  Response
-                </label>
-                <textarea
-                  type="text"
-                  name="response"
-                  id="response"
-                  class="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
                   //   placeholder="flowbite.com"
                   required
                 />
               </div>
-            
+              <div>
+                <label
+                  for="visitors"
+                  class="block mb-2 text-sm font-medium text-gray-900 lg:float-left"
+                >
+                  Attachment 1
+                </label>
+                <input
+                  type="file"
+                  id="visitors"
+                  // name="attachment"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
+                  placeholder=""
+                  onChange={(e) => {
+                    setattach0(e.target.files[0]);
+                  }}
+                />
+              </div>
+              <div>
+                <label
+                  for="visitors"
+                  class="block mb-2 text-sm font-medium text-gray-900 lg:float-left"
+                >
+                  Attachment 2
+                </label>
+                <input
+                  type="file"
+                  id="visitors"
+                  // name="attachment"
+                  class="bg-gray-50 border mb-10 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
+                  placeholder=""
+                  onChange={(e) => {
+                    setattach1(e.target.files[0]);
+                  }}
+                />
+              </div>
             </div>
             <button
               type="submit"
@@ -182,4 +235,4 @@ const AdminHelpdesk = () => {
   );
 };
 
-export default AdminHelpdesk;
+export default Helpdeskorg;

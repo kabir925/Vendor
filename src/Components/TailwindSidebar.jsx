@@ -138,7 +138,7 @@ const TailwindSidebar = () => {
                 <h6>Bids</h6>
               </div>
               {/* {/ Communication /} */}
-              <Link to='/helpdesk'>
+              <Link to='/helpdeskorg'>
               <div className="flex flex-row  text-white gap-2   ">
                 <FaMailBulk className="mt-1" />
                 <h6>Communication</h6>

@@ -1,6 +1,7 @@
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import axios from 'axios';
+import Invoiceapprove from './Components/Admin/Helpdesk/Invoiceapprove';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BasicDetails from './Components/BasicDetails.jsx';
@@ -16,6 +17,7 @@ import Helpdesk from './Components/Helpdesk';
 import Invoices from './Components/Invoices.jsx'
 import ViewAttachments from './Components/Views/ViewAttachments';
 import Profile from './Components/Profile.jsx'
+import Helpdeskorg from './Components/Helpdeskorg';
 import AdminHelpdesk from './Components/Admin/Helpdesk/AdminHelpdesk';
 import HelpQuery from './Components/Admin/Helpdesk/HelpQuery';
 
@@ -49,12 +51,14 @@ function App() {
             <Route path="/allinvoices" element={<Invoices />} />
             <Route path="/addinvoices" element={<AddInvoices />} />
             <Route path="/otherdetails" element={<Otherdetails />} />
-            <Route path="/helpdesk" element={<Helpdesk />} />
+            {/* <Route path="/helpdesk" element={<Helpdesk />} /> */}
             <Route path="profile" element={<Profile />} />
             <Route path="/viewattachments" element={<ViewAttachments />} />
             <Route path='/adminhelp' element={<AdminHelpdesk/>}/>
             <Route path='/profile' element={<Profile/>}/>
             <Route path='/helpquery' element={<HelpQuery/>}/>
+            <Route path='/helpdeskorg' element={<Helpdeskorg/>}/>
+            <Route path='/Invoiceapprove' element={<Invoiceapprove/>}/>
           </Routes>
         </BrowserRouter>
       </div>

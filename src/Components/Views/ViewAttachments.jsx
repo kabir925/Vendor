@@ -74,7 +74,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.PAN_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -95,7 +95,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.GST_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -116,7 +116,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.VAT_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -137,7 +137,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.TIN_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -158,7 +158,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.SalesTax_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -179,7 +179,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.CertificationOfIncorporation_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -200,7 +200,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.CertificationOfIncorporation_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -221,7 +221,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.Memorandum_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -242,7 +242,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.ArticleOfAssociation_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -263,7 +263,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.CancelledCheque_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -285,7 +285,7 @@ const ViewAttachments = () => {
                       <a
                         href={Data.BankDetails_Attach}
                         target="blank"
-                        className="relative inline-flex items-center justify-start inline-block px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
+                        className="relative inline-flex items-center justify-start  px-5 py-2 overflow-hidden font-medium transition-all bg-blue-600 rounded-full hover:bg-gray-100 group"
                       >
                         <span className="absolute inset-0 border-0 group-hover:border-[25px] ease-linear duration-100 transition-all border-gray-200 rounded-full"></span>
                         <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-blue-600">
@@ -300,7 +300,7 @@ const ViewAttachments = () => {
                 onClick={() => {
                     navigate("/attachments");                  
                 }}
-                className="inline-block my-5 float-right  bg-blue-500 rounded bg-primary px-8    pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                className=" my-5 float-right  bg-blue-500 rounded bg-primary px-8    pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
               >
                 Update Attachments
               </button> */}

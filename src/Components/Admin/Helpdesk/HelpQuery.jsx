@@ -127,7 +127,7 @@ const HelpQuery = () => {
       setquery(data.data.message);
     };
     getData();
-  }, [navigate]);
+  }, [navigate, token]);
   return (
     <>
       <div className="flex flex-col lg:flex-row">

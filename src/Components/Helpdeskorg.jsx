@@ -1,22 +1,29 @@
 import React, { useEffect } from "react";
 import TailwindSidebar from "./TailwindSidebar";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import FaceIcon from "@mui/icons-material/Face";
 const Helpdeskorg = () => {
+  const [selectedDate, setSelectedDate] = useState(
+    new Date().toISOString().slice(0, 10)
+  );
   const token = localStorage.getItem("jwttoken");
   const navigate = useNavigate();
   const [userData, setuserData] = useState({
     data: {
       vendor: {
         PrimaryEmailID: "",
+        _id: "",
+        NameOfTheCompany: "",
       },
     },
   });
   useEffect(() => {
+   
     const userDetailsCookie = Cookies.get("signincookie");
+    console.log(JSON.parse(userDetailsCookie));
     if (!userDetailsCookie) {
       navigate("/login");
     } else {
@@ -98,12 +105,13 @@ const Helpdeskorg = () => {
                 </label>
                 <input
                   type="date"
-                  id="first_name"
                   name="date"
+                  defaultValue={selectedDate} readOnly
+                  value={selectedDate}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                  //   placeholder="John"
-                  required
+                  onChange={(e) => setSelectedDate(e.target.value)}
                 />
+              
               </div>
               <div>
                 <label
@@ -113,8 +121,8 @@ const Helpdeskorg = () => {
                   Vendor ID
                 </label>
                 <input
-                  type="number"
                   name="vendor"
+                  value={userData.data.vendor._id}
                   id="last_name"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
                   //   placeholder="Doe"
@@ -129,7 +137,7 @@ const Helpdeskorg = () => {
                   Company Name
                 </label>
                 <input
-                  type="text"
+                  value={userData.data.vendor.NameOfTheCompany}
                   id="company"
                   name="companyname"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
@@ -145,15 +153,14 @@ const Helpdeskorg = () => {
                   Query Type
                 </label>
                 <select
-                    name="querytype"
+                  name="querytype"
                   id="cars"
-
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
                 >
-                  <option value="volvo">Payment Not recieved</option>
-                  <option value="saab">Registration Not Done</option>
-                  <option value="opel">TDS Certificate not recieved</option>
-                  <option value="audi">Others</option>
+                  <option value="Payment">Payment Not recieved</option>
+                  <option value="Registration">Registration Not Done</option>
+                  <option value="TDS">TDS Certificate not recieved</option>
+                  <option value="Others">Others</option>
                 </select>
               </div>
               <div>
@@ -169,7 +176,8 @@ const Helpdeskorg = () => {
                   id="website"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
                   //   placeholder="flowbite.com"
-                  requi red
+                  requi
+                  red
                 />
               </div>
               <div>
@@ -185,7 +193,6 @@ const Helpdeskorg = () => {
                   name="attachone"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
                   placeholder=""
-                  
                 />
               </div>
               <div>
@@ -200,19 +207,18 @@ const Helpdeskorg = () => {
                   id="visitors"
                   name="attachtwo"
                   class="bg-gray-50 border mb-10 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  "
-                  placeholder="" 
+                  placeholder=""
                 />
               </div>
             </div>
             <button
-          type="submit"
-          class="text-white lg:float-right  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
-        >
-          Submit
-        </button>
+              type="submit"
+              class="text-white lg:float-right   bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+            >
+              Submit
+            </button>
           </form>
         </div>
-    
       </div>
     </div>
   );

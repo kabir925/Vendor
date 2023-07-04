@@ -356,6 +356,18 @@ const BasicDetails = () => {
                         required
                       />
                     </div>
+                    <div className="hero-head">
+                      <label htmlFor="vendorName" className="form-label">
+                        Vendor's Name
+                      </label>
+                      <input
+                        type="text"
+                        id="vendorName"
+                        name="vendorName "
+                        className="form-control"
+                        required
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

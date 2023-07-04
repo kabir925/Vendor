@@ -260,7 +260,7 @@ const Attachments = () => {
                 </label>
                 <select
                   id="tabs"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                   <option>Attachments</option>
                   <option>Basic Details</option>
@@ -270,11 +270,11 @@ const Attachments = () => {
                   <option>Other Details</option>
                 </select>
               </div>
-              <ul className="hidden text-sm font-medium text-center text-white divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-gray-700 ">
+              <ul className="hidden text-sm font-medium text-center text-white divide-x divide-gray-500 rounded-lg shadow sm:flex dark:divide-gray-700 ">
                 <li className="w-full">
                   <a
                     href="/basicdetails"
-                    className="inline-block rounded-l-lg w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                    className="inline-block w-full p-4 rounded-l-lg bg-gray-800 hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                   >
                     <h6 className="">Basic Details</h6>
                   </a>
@@ -282,7 +282,7 @@ const Attachments = () => {
                 <li className="w-full">
                   <a
                     href="/taxdetails"
-                    className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                    className="inline-block w-full p-4 bg-gray-800 hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                   >
                     <h6>Tax Details</h6>
                   </a>
@@ -290,7 +290,7 @@ const Attachments = () => {
                 <li className="w-full">
                   <a
                     href="/bankdetails"
-                    className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                    className="inline-block w-full p-4 bg-gray-800 hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                   >
                     <h6>Bank Details</h6>
                   </a>
@@ -298,7 +298,7 @@ const Attachments = () => {
                 <li className="w-full">
                   <a
                     href="/bankaddress"
-                    className="inline-block w-full p-4 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                    className="inline-block w-full p-4 bg-gray-800 hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 focus:outline-none dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                   >
                     <h6>Bank Address</h6>
                   </a>
@@ -314,7 +314,7 @@ const Attachments = () => {
                 <li className="w-full">
                   <a
                     href="/otherdetails"
-                    className="inline-block w-full p-4 bg-white rounded-r-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                    className="inline-block w-full p-4 bg-gray-800 rounded-r-lg hover:text-gray-100 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                   >
                     <h6>Other Details</h6>
                   </a>

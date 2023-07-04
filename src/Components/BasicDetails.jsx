@@ -100,13 +100,13 @@ const BasicDetails = () => {
             }}
           >
             <div className="white-bar">
-              <span className="name">{userData.data.vendor.PrimaryEmailID}</span>
+              <span className="name"></span>
               <div className="icon">
                 <FaceIcon />
               </div>
             </div>
 
-            {/* Navbar code */}
+            {/* {/ Navbar code /} */}
             
             <div class="w-[80%] mx-auto mt-5">
             <div className="sm:hidden">
@@ -369,4 +369,4 @@ const BasicDetails = () => {
   );
 }
 
-export default BasicDetails;
+export default BasicDetails

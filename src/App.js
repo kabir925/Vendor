@@ -1,6 +1,7 @@
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import axios from 'axios';
+import Invoiceapprove from './Components/Admin/Helpdesk/Invoiceapprove';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BasicDetails from './Components/BasicDetails.jsx';
@@ -57,6 +58,7 @@ function App() {
             <Route path='/profile' element={<Profile/>}/>
             <Route path='/helpquery' element={<HelpQuery/>}/>
             <Route path='/helpdeskorg' element={<Helpdeskorg/>}/>
+            <Route path='/Invoiceapprove' element={<Invoiceapprove/>}/>
           </Routes>
         </BrowserRouter>
       </div>

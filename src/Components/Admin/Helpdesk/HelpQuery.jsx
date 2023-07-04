@@ -56,7 +56,7 @@ const HelpQuery = () => {
                         Q No
                       </th>
                       <th scope="col" className="px-8 py-5">
-                        Subject
+                        Query
                       </th>
                       <th scope="col" className="px-8 py-5">
                         status
@@ -64,9 +64,9 @@ const HelpQuery = () => {
                       <th scope="col" className="px-8 py-5">
                         Description
                       </th>
-                      {/* <th scope="col" className="px-6 py-5">
-                        Link
-                      </th> */}
+                      <th scope="col" className="px-8 py-5">
+                        Date
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
